@@ -1,164 +1,152 @@
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 import sys
-import json
 import os
-import re
+import argparse
+import logging
+import numpy as np
 
-def standardize_district_names(df, column_name):
-    """
-    Standardizes district names to a consistent format.
-    Handles common variations and ensures consistency.
-    """
-    df[column_name] = df[column_name].str.strip().str.title()
-    # Create a mapping for common variations
-    district_mapping = {
-        "Rangareddy": "Ranga Reddy",
-        "Medchal": "Medchal-Malkajgiri",
-        "Medchal-Malkajgiri": "Medchal-Malkajgiri",
-        "Hyderabad": "Hyderabad",
-    }
-    df[column_name] = df[column_name].replace(district_mapping, regex=True)
-    return df
+# A simple logger function that appends to a file and prints to console
+def setup_logging(log_file):
+    logging.basicConfig(
+        level=logging.INFO,
+        format='[%(asctime)s] %(message)s',
+        handlers=[
+            logging.FileHandler(log_file, mode='a'),
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
 
-def clean_data(input_path, output_path):
+def log_message(message):
+    logging.info(message)
+    
+def clean_data(input_path, output_path, year, log_file):
     """
-    Cleans and standardizes the raw MSME dataset.
+    Cleans and standardizes a single CSV file, handling missing values and duplicates.
     """
+    setup_logging(log_file)
+    log_message(f"Starting data cleaning for: {os.path.basename(input_path)}")
+
     try:
         df = pd.read_csv(input_path)
-    except Exception as e:
-        print(json.dumps({"status": "error", "message": f"Failed to read CSV: {e}"}))
+    except FileNotFoundError:
+        log_message(f"ERROR: The file at {input_path} was not found.")
         sys.exit(1)
-
-    # --- Standardization Measures ---
     
-    # 1. Standardize column names (lowercase, no spaces)
-    df.columns = df.columns.str.lower().str.replace(' ', '_')
+    initial_rows = len(df)
+    log_message(f"Initial dataset shape: {df.shape}")
 
-    # 2. Standardize district names
-    if 'district' in df.columns:
-        df = standardize_district_names(df, 'district')
-    
-    # --- Transformation & New Columns ---
+    # Drop any unnamed columns
+    unnamed_cols = [col for col in df.columns if 'Unnamed' in col]
+    if unnamed_cols:
+        df.drop(columns=unnamed_cols, inplace=True)
+        log_message(f"Dropped {len(unnamed_cols)} 'Unnamed' column(s).")
 
-    # 3. Create 'Investment_Per_Employee'
-    if 'investment' in df.columns and 'employment' in df.columns:
-        df['investment_per_employee'] = df['investment'] / df['employment']
-        df['investment_per_employee'] = df['investment_per_employee'].replace([np.inf, -np.inf], np.nan)
-        df['investment_per_employee'] = df['investment_per_employee'].fillna(0) # or another imputation method
-        
-    # 4. Create 'MSME_Age_in_Years'
-    if 'date_of_establishment' in df.columns:
-        df['date_of_establishment'] = pd.to_datetime(df['date_of_establishment'])
-        df['msme_age_in_years'] = (pd.to_datetime('today') - df['date_of_establishment']).dt.days / 365.25
+    # --- Standardization ---
+    column_mapping = {
+        'unit_name': 'unit_name', 'ie_or_not': 'ie_or_not', 'industry_category': 'industry_category',
+        'district_name': 'district', 'mandal_name': 'mandal', 'employment': 'employment',
+        'line_of_activity': 'line_of_activity', 'investment': 'investment',
+        'presentstatus': 'present_status', 'typeofindustry': 'industry_type',
+        'export': 'export', 'typeofconnection': 'connection_type',
+        # Handles other file variants
+        'district': 'district', 'mandal': 'mandal', 'type_of_industry': 'industry_type',
+        'industry_name': 'industry_type',
+    }
+    df.rename(columns=column_mapping, inplace=True)
+    log_message("Standardized column names.")
 
-    # 5. Handle missing values
-    df.fillna(0, inplace=True) # Simple fill for hackathon
+    # Normalize district names
+    district_mapping = {
+        'Warangal - Rural': 'Warangal Rural',
+        'Warangal - Rura Duggondi': 'Warangal Rural',
+        'Warangal - Rura Geesugonda': 'Warangal Rural',
+        'Rangareddy': 'Ranga Reddy',
+    }
+    df['district'] = df['district'].replace(district_mapping)
 
-    # Save the cleaned data to a new CSV
+    # Remove duplicates
+    before = len(df)
+    df.drop_duplicates(inplace=True)
+    after = len(df)
+    if before > after:
+        log_message(f"Removed {before - after} duplicate row(s).")
+
+    # Convert investment to numeric
+    df['investment'] = pd.to_numeric(df['investment'].replace({r'[^\d.]': ''}, regex=True), errors='coerce')
+    missing_investment = df['investment'].isnull().sum()
+    if missing_investment > 0:
+        median_val = df['investment'].median()
+        df['investment'].fillna(median_val, inplace=True)
+        log_message(f"Filled {missing_investment} missing 'investment' values with median {median_val}.")
+
+    # Fill missing employment with mean
+    if 'employment' in df.columns:
+        missing_emp = df['employment'].isnull().sum()
+        if missing_emp > 0:
+            mean_val = df['employment'].mean()
+            df['employment'].fillna(mean_val, inplace=True)
+            log_message(f"Filled {missing_emp} missing 'employment' values with mean {mean_val:.2f}.")
+
+    # Fill missing categorical with "Unknown"
+    for col in ['district', 'mandal', 'industry_type']:
+        if col in df.columns:
+            missing = df[col].isnull().sum()
+            if missing > 0:
+                df[col].fillna('Unknown', inplace=True)
+                log_message(f"Filled {missing} missing '{col}' values with 'Unknown'.")
+
+    # Add year column
+    df['year'] = year
+
+    log_message(f"Final dataset shape: {df.shape}")
     df.to_csv(output_path, index=False)
-    
-    # Return a JSON object
-    print(json.dumps({
-        "status": "success",
-        "message": f"Data cleaned and saved to {output_path}",
-        "columns_added": ["investment_per_employee", "msme_age_in_years"]
-    }))
+    log_message(f"Saved cleaned dataset to {output_path}")
 
-def analyze_data(data_path, query):
+def combine_data(input_paths, output_path, log_file):
     """
-    Analyzes the cleaned data based on a natural language query.
+    Combines multiple cleaned CSVs into a single master file.
     """
-    try:
-        df = pd.read_csv(data_path)
-    except FileNotFoundError:
-        print(json.dumps({"error": "Cleaned data file not found. Please upload a CSV first."}))
+    setup_logging(log_file)
+    log_message("Starting data combination process.")
+    
+    all_dfs = []
+    for path in input_paths:
+        if os.path.exists(path):
+            all_dfs.append(pd.read_csv(path))
+            log_message(f"Loaded cleaned file: {os.path.basename(path)}")
+        else:
+            log_message(f"WARNING: File not found at {path}. Skipping.")
+
+    if not all_dfs:
+        log_message("ERROR: No cleaned data files found. Exiting.")
         sys.exit(1)
-    
-    # A simplified, rule-based approach for the hackathon
-    query = query.lower()
-    response = "I'm sorry, I couldn't find a direct answer to that question in the data."
-    
-    if "top 5 districts by investment" in query or "highest investment" in query:
-        top_districts = df.groupby('district')['investment'].sum().nlargest(5).reset_index()
-        response = f"The top 5 districts by total investment are:\n"
-        for index, row in top_districts.iterrows():
-            response += f"{index + 1}. {row['district']}: ₹{row['investment'] / 100000:.2f} lakhs\n"
-        
-    elif "average investment" in query:
-        avg_investment = df['investment'].mean()
-        response = f"The average investment across all MSMEs is ₹{avg_investment / 100000:.2f} lakhs."
-        
-    elif "employment by district" in query:
-        employment = df.groupby('district')['employment'].sum().nlargest(10).reset_index()
-        response = f"Here is the total employment by district:\n"
-        for index, row in employment.iterrows():
-            response += f"{index + 1}. {row['district']}: {int(row['employment'])} employees\n"
-            
-    print(json.dumps({"text": response}))
 
-def generate_plot(data_path, query_text, plot_path):
-    """
-    Generates a plot based on the query and saves it to a file.
-    """
-    try:
-        df = pd.read_csv(data_path)
-    except FileNotFoundError:
-        print(json.dumps({"error": "Cleaned data file not found. Please upload a CSV first."}))
-        sys.exit(1)
-    
-    plt.style.use('ggplot')
-    plt.figure(figsize=(10, 6))
-    
-    query = query_text.lower()
-    
-    if "top 5 districts by total investment" in query:
-        data = df.groupby('district')['investment'].sum().nlargest(5)
-        data.plot(kind='bar', color='purple')
-        plt.title('Top 5 Districts by Total Investment', fontsize=16)
-        plt.ylabel('Investment (in ₹)', fontsize=12)
-        plt.xlabel('District', fontsize=12)
-        plt.xticks(rotation=45)
-        plt.tight_layout()
-        plt.savefig(plot_path)
-        print(json.dumps({"success": True}))
-    
-    elif "investment per employee" in query and "bar chart" in query:
-        data = df.groupby('district')['investment_per_employee'].mean().nlargest(5)
-        data.plot(kind='bar', color='teal')
-        plt.title('Top 5 Districts by Average Investment Per Employee', fontsize=16)
-        plt.ylabel('Investment Per Employee (in ₹)', fontsize=12)
-        plt.xlabel('District', fontsize=12)
-        plt.xticks(rotation=45)
-        plt.tight_layout()
-        plt.savefig(plot_path)
-        print(json.dumps({"success": True}))
+    combined_df = pd.concat(all_dfs, ignore_index=True)
+    combined_df.to_csv(output_path, index=False)
+    log_message(f"Successfully combined {len(all_dfs)} file(s).")
+    log_message(f"Combined data saved to {output_path}")
 
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Data Processing Agent for Telangana Open Data.")
+    subparsers = parser.add_subparsers(dest='command', help='Available commands')
+
+    # clean subcommand
+    clean_parser = subparsers.add_parser('clean', help='Clean and standardize a single dataset.')
+    clean_parser.add_argument('--input_path', required=True)
+    clean_parser.add_argument('--output_path', required=True)
+    clean_parser.add_argument('--year', required=True)
+    clean_parser.add_argument('--log_file', required=True)
+
+    # combine subcommand
+    combine_parser = subparsers.add_parser('combine', help='Combine multiple datasets.')
+    combine_parser.add_argument('--output_path', required=True)
+    combine_parser.add_argument('--log_file', required=True)
+    combine_parser.add_argument('--input_paths', nargs='+', required=True)
+
+    args = parser.parse_args()
+    if args.command == 'clean':
+        clean_data(args.input_path, args.output_path, args.year, args.log_file)
+    elif args.command == 'combine':
+        combine_data(args.input_paths, args.output_path, args.log_file)
     else:
-        print(json.dumps({"success": False, "message": "Could not understand the plot request."}))
-        
-    
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print(json.dumps({"error": "No command provided. Use --clean, --analyze, or --plot."}))
-        sys.exit(1)
-        
-    command = sys.argv[1]
-    
-    if command == '--clean':
-        input_path = sys.argv[2]
-        output_path = sys.argv[3]
-        clean_data(input_path, output_path)
-    
-    elif command == '--analyze':
-        data_path = sys.argv[2]
-        query = sys.argv[3]
-        analyze_data(data_path, query)
-
-    elif command == '--plot':
-        data_path = sys.argv[2]
-        query = sys.argv[3]
-        plot_path = sys.argv[4]
-        generate_plot(data_path, query, plot_path)
+        parser.print_help()

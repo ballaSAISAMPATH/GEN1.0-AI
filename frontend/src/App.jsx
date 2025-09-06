@@ -1,9 +1,11 @@
 import React from 'react'
-
+import Interface from './pages/Interface'
 export default function App() {
   return (
     <div>
-     App
+     
+     <Interface/>
+     
     </div>
   )
 }
