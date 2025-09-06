@@ -1,0 +1,33 @@
+unit_name,ie_or_not,industry_category,district_name,mandal_name,employment,line_of_activity,investment,presentstatus,typeofindustry,export,typeofconnection
+"M/S, JAMUNA STONE CRUSHER",NO,SMALL,Adilabad,Utnoor,9,Stone crushers,210.0,Working,Proprietary,No,LT
+M/S.JAMUNA STONE CRUSHER,NO,SMALL,Adilabad,Utnoor,9,Stone crushers,210.0,Working,Proprietary,No,LT
+M/s Om Bricks,NO,MICRO,Asifabad,Wankdi,6,Fly ash bricks/ block manufacturing,24.54,Working,Proprietary,No,LT
+AB WASTE MANAGEMENT,NO,MICRO,Gadwal,Ieej,11,Reprocessing of waste plastic Including PVC,70.0,Working,Proprietary,No,HT
+JAPS DUCTFAB PVT LTD,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),162.0,Working,Pvt Ltd,No,LT
+"""M/s SVAGO INTERIORS""",NO,MICRO,Hanumakonda,Khaazipet,9,"Carpentry & wooden furniture manufacturing (excluding saw mill) with the help of electrical (motorized) machines such as electrical wood planner, steel saw cutting circular blade, etc",82.0,Working,Partnership,No,LT
+FU,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),170.0,Working,Pvt Ltd,No,LT
+FUAIR CONDITIONING INDIA PVT LTD,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),170.0,Working,Pvt Ltd,No,LT
+d,YES,LARGE,Hyderabad,Amberpet,1234,Electrical and electronic item assembling ( completely dry process),123456.0,Working,Pvt Ltd,Yes,LT
+Nutriolife Food Processing,NO,MICRO,Hyderabad,Hyderabad,5,Food and food processing including fruits and vegetable processing,118181.0,Working,Proprietary,Yes,LT
+M/s. LAXMI CHANDRAIAH AGRO INDUSTRIES,NO,MICRO,Jagtial,Koratla,15,Parboiled Rice Mills,300.0,Working,Partnership,No,LT
+LAXMI CHANDRAIAH AGRO INDUSTRIES,NO,MICRO,Jagtial,Koratla,15,Parboiled Rice Mills,293.0,Working,Partnership,No,LT
+M.S VISHWANADH AGRO INDUSTRIES PARABOILED RICEMILL,NO,SMALL,Jangaon,Jangaon,15,Parboiled Rice Mills,767.0,Working,Proprietary,No,LT
+M/s.Sri Sai Vaishnavi Granites Industry,NO,SMALL,Karimnagar,Gangadhara,20,"Cutting, sizing and polishing of marble stone",200.0,Working,Partnership,No,LT
+SRI SAI TANVI GRANITES,NO,SMALL,Karimnagar,Kothapally,10,Granite / Stone Cutting and Polishing,200.0,Working,Partnership,No,LT
+SRI LAXMI GANAPATHI GRANITES,NO,SMALL,Karimnagar,Kothapally,15,"Cutting, sizing and polishing of marble stone",272.0,Working,Partnership,No,HT
+SVG INDUSTRY,NO,MICRO,Karimnagar,Kothapally,10,Granite / Stone Cutting and Polishing,180.0,Working,Partnership,No,HT
+SRI POULTRY FARMS,NO,SMALL,Khammam,Penuballi,10,"Poultry, Hatchery and Piggery",200.0,Other,Proprietary,No,HT
+ALP AEROFLEX INDIA PRIVATE LIMITED,NO,MEDIUM,Mahbubnagar,Jadcherla,65,Rubber goods industry (with gas operated baby boiler),4806.0,Working,Pvt Ltd,No,LT
+M/S ALP AEROFLEX INDIA PRIVATE LIMITED,NO,MEDIUM,Mahbubnagar,Jadcherla,66,Rubber goods industry (with gas operated baby boiler),7500.0,Working,Pvt Ltd,No,LT
+ALP AEROFLEX INDIA PRIVATE LIMITED,YES,MEDIUM,Mahbubnagar,Rajapur,66,Rubber goods industry (with gas operated baby boiler),7500.0,Working,Pvt Ltd,Yes,HT
+ALP Aeroflex India Pvt. Ltd.,YES,MEDIUM,Mahbubnagar,Rajapur,66,Rubber goods industry (with gas operated baby boiler),7500.0,Working,Pvt Ltd,Yes,HT
+Bansal Polyplast Pvt Ltd,YES,SMALL,Medak,Kulcharam,13,Reprocessing of waste plastic Including PVC,494.85,Working,Pvt Ltd,No,HT
+"M/S BANSAL POLYPLAST PVT LTD.,",YES,SMALL,Medak,Manoharabad,13,Reprocessing of waste plastic Including PVC,479.66,Working,Pvt Ltd,No,HT
+M/s. RECAZ POLYURETHANES PVT LTD,NO,MICRO,Medak,Manoharabad,6,"Lubricating oil, greases or petroleum based products (only blending at nomad temperature)",75.0,Working,Pvt Ltd,Yes,LT
+Sinduja PloyBags,YES,SMALL,Medchal,Qutubullapur,30,Polythene and plastic processed products manufacturing(Virgin Plastic),450.0,Working,Proprietary,No,HT
+M/S DECCAN GRAINZ PRIVATE LIMITED,YES,SMALL,Mulugu,Mulugu,62,Packing of powdered mill,1236.6,Working,Pvt Ltd,Yes,HT
+sprint ziptech,NO,MICRO,Rangareddy,Kothur,12,Polythene and plastic processed products manufacturing(Virgin Plastic),80.0,Working,Proprietary,No,LT
+M/s Sainath Enterprises,NO,MICRO,Rangareddy,Rajendranagar,10,Polythene and plastic processed products manufacturing(Virgin Plastic),50.0,Other,Proprietary,No,LT
+ASTRAL LIMITED,YES,LARGE,Rangareddy,Shabad,500,Polythene and plastic processed products manufacturing(Virgin Plastic),128582.0,Working,Public Limited,No,HT
+BRAMARAMBIKA MALLIKARJUNA AGRO INDUSTRIES,NO,MICRO,Sangareddy,Pulkal,15,Parboiled Rice Mills,344.0,Working,Proprietary,No,LT
+KISAN DAIRY FARM,NO,MICRO,Warangal,Wardhanna Pet,5,"Dairy Farm (Stand-alone or isolated dairy farm, having 15 animals & above)",20.0,Working,Proprietary,No,LT

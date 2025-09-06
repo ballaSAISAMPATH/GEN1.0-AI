@@ -12,6 +12,10 @@ const Interface = () => {
     const [datasetUploaded, setDatasetUploaded] = useState(false);
     const chatEndRef = useRef(null);
     const fileInputRef = useRef(null);
+    const [cleanedReady, setCleanedReady] = useState(false);
+    const [insightsContent, setInsightsContent] = useState('');
+    const [insightsGenerated, setInsightsGenerated] = useState(false);
+
 
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files);
@@ -28,55 +32,68 @@ const Interface = () => {
         setYears({ ...years, [index]: value });
     };
 
-    const [cleanedReady, setCleanedReady] = useState(false); // ✅ add this
-
     const generateInsights = async () => {
-        console.log("hi");
-        
-        const response  = await axios.get('http://localhost:2601/user/api/insights');
-        console.log(response);
-        
+        setLoading(true);
+        try {
+            const response = await axios.get('http://localhost:2601/user/api/insights');
+            if(response.data.success){
+                setInsightsContent(response.data.insight);
+                setInsightsGenerated(true);
+                toast.success("Insights generated successfully!");
+            } else {
+                toast.error(`Error: ${response.data.error}`);
+            }
+        }
+        catch (error) {
+            console.error('Error generating insights:', error);
+            toast.error(`Error: ${error.response?.data?.error || error.message}`);
+        }
+        finally{
+            setLoading(false);
+        }
     }
-const handleUpload = async () => {
-  if (selectedFiles.length === 0) {
-    toast.error('Please select at least one file.');
-    return;
-  }
 
-  setLoading(true);
+    const handleUpload = async () => {
+        if (selectedFiles.length === 0) {
+            toast.error('Please select at least one file.');
+            return;
+        }
 
-  const formData = new FormData();
-  selectedFiles.forEach((file) => formData.append('csvFiles', file));
-  formData.append('years', JSON.stringify(Object.values(years)));
+        setLoading(true);
 
-  try {
-    const response = await axios.post('http://localhost:2601/api/upload-csv', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
-    });
+        const formData = new FormData();
+        selectedFiles.forEach((file) => formData.append('csvFiles', file));
+        formData.append('years', JSON.stringify(Object.values(years)));
 
-    if (response.data.success) {
-      toast.success('Dataset uploaded successfully!');
-      setDatasetUploaded(true);
-      setCleanedReady(true);   // ✅ mark dataset ready for download
+        try {
+            const response = await axios.post('http://localhost:2601/api/upload-csv', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            });
 
-      setChatHistory((prev) => [
-        ...prev,
-        { role: 'ai', content: 'Dataset uploaded successfully! You can now ask questions.', type: 'info' },
-      ]);
+            if (response.data.success) {
+                toast.success('Dataset uploaded successfully!');
+                setDatasetUploaded(true);
+                setCleanedReady(true);
+                setInsightsGenerated(false); // Reset insights on new upload
 
-      setSelectedFiles([]);
-      setYears({});
-      if (fileInputRef.current) fileInputRef.current.value = '';
-    } else {
-      toast.error(`Error: ${response.data.error}`);
-    }
-  } catch (error) {
-    console.error('Upload failed:', error);
-    toast.error(`Error: ${error.response?.data?.error || error.message}`);
-  } finally {
-    setLoading(false);
-  }
-};
+                setChatHistory((prev) => [
+                    ...prev,
+                    { role: 'ai', content: 'Dataset uploaded successfully! You can now ask questions.', type: 'info' },
+                ]);
+
+                setSelectedFiles([]);
+                setYears({});
+                if (fileInputRef.current) fileInputRef.current.value = '';
+            } else {
+                toast.error(`Error: ${response.data.error}`);
+            }
+        } catch (error) {
+            console.error('Upload failed:', error);
+            toast.error(`Error: ${error.response?.data?.error || error.message}`);
+        } finally {
+            setLoading(false);
+        }
+    };
 
 
     const handleSendMessage = async () => {
@@ -124,7 +141,7 @@ const handleUpload = async () => {
     return (
         <div className="relative overflow-hidden font-sans antialiased text-gray-100 h-screen w-full flex bg-black">
             {/* Styles for react-toastify embedded directly */}
-            <style jsx>{`
+            <style>{`
                 .Toastify__toast-container {
                     z-index: 9999;
                     position: fixed;
@@ -252,7 +269,7 @@ const handleUpload = async () => {
             <div className="absolute inset-0 bg-black bg-opacity-70 backdrop-filter backdrop-blur-md"></div>
 
             <div className="relative z-10 w-full h-full flex flex-col md:flex-row overflow-hidden">
-                
+
                 {/* Left Panel - Chat */}
                 <div className="flex-grow flex flex-col p-6 border-r border-gray-800 md:w-1/2">
                     <header className="text-center mb-6">
@@ -354,26 +371,36 @@ const handleUpload = async () => {
                     <div className="flex-grow flex flex-col justify-start items-start w-full bg-black border-b border-gray-800 p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-gray-700 scrollbar-track-gray-800">
                         <h2 className="text-xl font-bold text-white mb-2">Insights</h2>
                         {cleanedReady ? (
-                            <div>
-
-                                <button
-                                    onClick={() => window.open("http://localhost:2601/api/download-cleaned", "_blank")}
-                                    className="px-6 py-2   transition-all hover:scale-108 hover:-translate-y-2 bg-green-600 hover:bg-green-500 rounded-md font-semibold text-white  mb-4"
+                            <div className="w-full flex flex-col items-center">
+                                <div className="flex justify-center w-full mb-4">
+                                    <button
+                                        onClick={() => window.open("http://localhost:2601/api/download-cleaned", "_blank")}
+                                        className="px-6 py-2 transition-all hover:scale-108 hover:-translate-y-2 bg-green-600 hover:bg-green-500 rounded-md font-semibold text-white mr-4"
                                     >
-                                    Download Cleaned Dataset
-                                </button>
-                                <button onClick={generateInsights} className=' mx-10 py-2 px-3 cursor-pointer hover:bg-blue-700 transition-all hover:scale-108 hover:-translate-y-2 bg-blue-800 rounded-lg'>generate insights</button>
-                        </div>
-                    ) : (
-                    <p className="text-gray-500 mb-4">Refined file not generated yet</p>
-                    )}
-
-                        {chatHistory.some(c => c.type !== 'loading' && c.role === 'ai') ? (
-                            <div className="text-gray-200 whitespace-pre-wrap">
-                                {chatHistory.filter(c => c.role === 'ai' && c.type !== 'loading')[0].content}
+                                        Download Cleaned Dataset
+                                    </button>
+                                    <button
+                                        onClick={generateInsights}
+                                        disabled={loading || insightsGenerated}
+                                        className={`px-6 py-2 rounded-md font-semibold text-white transition-colors ${
+                                            loading || insightsGenerated
+                                                ? "bg-gray-700 cursor-not-allowed"
+                                                : "bg-blue-600 hover:bg-blue-700"
+                                        }`}
+                                    >
+                                        {loading ? "Generating..." : "Generate Insights"}
+                                    </button>
+                                </div>
+                                {insightsContent ? (
+                                    <div className="text-gray-200 whitespace-pre-wrap">
+                                        {insightsContent}
+                                    </div>
+                                ) : (
+                                    <p className="text-gray-500 text-center">Click 'Generate Insights' to begin.</p>
+                                )}
                             </div>
                         ) : (
-                            <p className="text-gray-500">Insights from dataset will appear here after upload.</p>
+                            <p className="text-gray-500 mb-4">Refined file not generated yet</p>
                         )}
                     </div>
 
