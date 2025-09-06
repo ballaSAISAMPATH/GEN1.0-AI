@@ -11,9 +11,13 @@
   "dependencies": {
     "@langchain/core": "^0.3.75",
     "@langchain/groq": "^0.2.3",
+    "@langchain/openai": "^0.6.11",
+    "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
-    "mongoose": "^8.18.0"
+    "langchain": "^0.3.33",
+    "mongoose": "^8.18.0",
+    "multer": "^2.0.2"
   }
 }
