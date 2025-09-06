@@ -59,7 +59,6 @@ const Interface = () => {
     }
 
     setLoading(true);
-
     const formData = new FormData();
     selectedFiles.forEach((file) => formData.append("csvFiles", file));
     formData.append("years", JSON.stringify(Object.values(years)));
@@ -68,27 +67,18 @@ const Interface = () => {
       const response = await axios.post(
         "http://localhost:2601/api/upload-csv",
         formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+        { headers: { "Content-Type": "multipart/form-data" } }
       );
 
       if (response.data.success) {
         toast.success("Dataset uploaded successfully!");
         setDatasetUploaded(true);
         setCleanedReady(true);
-        setInsightsGenerated(false); // Reset insights on new upload
-
+        setInsightsGenerated(false);
         setChatHistory((prev) => [
           ...prev,
-          {
-            role: "ai",
-            content:
-              "Dataset uploaded successfully! You can now ask questions.",
-            type: "info",
-          },
+          { role: "ai", content: "Dataset uploaded successfully! You can now ask questions.", type: "info" }
         ]);
-
         setSelectedFiles([]);
         setYears({});
         if (fileInputRef.current) fileInputRef.current.value = "";
@@ -105,46 +95,33 @@ const Interface = () => {
 
   const handleSendMessage = async () => {
     if (!message.trim()) return;
-
     const userMessage = message;
     setMessage("");
     setLoading(true);
 
-    // Add user message and AI placeholder together
     setChatHistory((prev) => [
       ...prev,
       { role: "user", content: userMessage },
-      { role: "ai", content: "", type: "loading" },
+      { role: "ai", content: "", type: "loading" }
     ]);
 
-    // The index of the placeholder is the last item in chatHistory after adding both
     const placeholderIndex = chatHistory.length + 1;
 
     try {
-      const response = await axios.post("http://localhost:2601/user/api/chat", {
-        message: userMessage,
-      });
-
+      const response = await axios.post("http://localhost:2601/user/api/chat", { message: userMessage });
       setChatHistory((prev) => {
         const updated = [...prev];
         if (response.data.success) {
-          updated[placeholderIndex] = {
-            role: "ai",
-            content: response.data.text,
-          };
+          updated[placeholderIndex] = { role: "ai", content: response.data.text };
         }
         return updated;
       });
     } catch (error) {
       console.error("Chat failed:", error);
       toast.error(`Error: ${error.response?.data?.error || error.message}`);
-
       setChatHistory((prev) => {
         const updated = [...prev];
-        updated[placeholderIndex] = {
-          role: "ai",
-          content: `Error: ${error.response?.data?.error || error.message}`,
-        };
+        updated[placeholderIndex] = { role: "ai", content: `Error: ${error.response?.data?.error || error.message}` };
         return updated;
       });
     } finally {
@@ -161,128 +138,23 @@ const Interface = () => {
   }, [chatHistory]);
 
   return (
-    <div className="relative overflow-hidden font-sans antialiased text-gray-100 h-screen w-full flex bg-black">
-      {/* Styles for react-toastify embedded directly */}
+    <div className="relative overflow-hidden font-sans antialiased text-gray-100 h-screen w-full flex flex-col md:flex-row bg-black">
+      {/* Scrollbar Color */}
       <style>{`
-                .Toastify__toast-container {
-                    z-index: 9999;
-                    position: fixed;
-                    padding: 4px;
-                    width: 320px;
-                    box-sizing: border-box;
-                    color: #fff;
-                }
-                .Toastify__toast-container--top-left {
-                    top: 1em;
-                    left: 1em;
-                }
-                .Toastify__toast-container--top-center {
-                    top: 1em;
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-                .Toastify__toast-container--top-right {
-                    top: 1em;
-                    right: 1em;
-                }
-                .Toastify__toast-container--bottom-left {
-                    bottom: 1em;
-                    left: 1em;
-                }
-                .Toastify__toast-container--bottom-center {
-                    bottom: 1em;
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-                .Toastify__toast-container--bottom-right {
-                    bottom: 1em;
-                    right: 1em;
-                }
-                .Toastify__toast-container--rtl {
-                    right: initial;
-                    left: 1em;
-                }
-                .Toastify__toast-container--rtl.Toastify__toast-container--top-left,
-                .Toastify__toast-container--rtl.Toastify__toast-container--top-right,
-                .Toastify__toast-container--rtl.Toastify__toast-container--bottom-left,
-                .Toastify__toast-container--rtl.Toastify__toast-container--bottom-right {
-                    left: 1em;
-                    right: initial;
-                }
-                .Toastify__toast {
-                    position: relative;
-                    min-height: 64px;
-                    box-sizing: border-box;
-                    margin-bottom: 1em;
-                    padding: 8px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-                    display: flex;
-                    justify-content: space-between;
-                    max-height: 800px;
-                    overflow: hidden;
-                    font-family: sans-serif;
-                    cursor: pointer;
-                    direction: ltr;
-                }
-                .Toastify__toast--rtl {
-                    direction: rtl;
-                }
-                .Toastify__toast--close-on-click {
-                    cursor: pointer;
-                }
-                .Toastify__toast--no-close-on-click {
-                    cursor: default;
-                }
-                .Toastify__toast-body {
-                    display: flex;
-                    align-items: center;
-                    flex-grow: 1;
-                    padding: 6px;
-                    margin: auto 0;
-                }
-                .Toastify__close-button {
-                    color: #fff;
-                    font-weight: bold;
-                    opacity: 0.7;
-                    transition: opacity 0.2s ease-in-out;
-                    align-self: flex-start;
-                    background: transparent;
-                    outline: none;
-                    border: none;
-                    padding: 0;
-                    cursor: pointer;
-                }
-                .Toastify__close-button:hover {
-                    opacity: 1;
-                }
-                .Toastify__toast-icon {
-                    margin-right: 10px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 1.5em;
-                }
-                .Toastify__toast--success {
-                    background: #4caf50;
-                }
-                .Toastify__toast--error {
-                    background: #f44336;
-                }
-                .Toastify__toast--info {
-                    background: #2196f3;
-                }
-                .Toastify__toast--warning {
-                    background: #ff9800;
-                }
-                .Toastify__toast--default {
-                    background: #555;
-                }
-                .Toastify__toast-body {
-                    white-space: pre-wrap;
-                    word-break: break-word;
-                }
-            `}</style>
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+          background-color: #1e40af;
+          border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background-color: #3b82f6;
+        }
+      `}</style>
 
       {/* Background circles */}
       <div className="absolute left-1/4 top-1/4 w-48 h-48 bg-purple-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-[blob_15s_ease-in-out_infinite]"></div>
@@ -290,190 +162,122 @@ const Interface = () => {
       <div className="absolute left-1/2 bottom-1/3 w-64 h-64 bg-fuchsia-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-[blob_15s_ease-in-out_4s_infinite]"></div>
       <div className="absolute inset-0 bg-black bg-opacity-70 backdrop-filter backdrop-blur-md"></div>
 
-      <div className="relative z-10 w-full h-full flex flex-col md:flex-row overflow-hidden">
-        {/* Left Panel - Chat */}
-        <div className="flex-grow flex flex-col p-6 border-r border-gray-800 md:w-1/2">
-          <header className="text-center mb-6">
-            <h1 className="text-3xl font-extrabold text-purple-400">
-              RTGS AI Analyst
-            </h1>
-            <p className="text-gray-400 mt-1">Chat with Telangana Open Data</p>
+      <div className="relative z-10 flex flex-col md:flex-row h-screen md:overflow-hidden">
+        {/* Left Chat Panel */}
+        <div className="flex flex-col w-full md:w-2/3 border-r border-gray-800 p-4 min-h-screen md:h-full overflow-y-auto">
+          <header className="text-center mb-4">
+            <h1 className="text-2xl font-bold text-purple-400">RTGS AI Analyst</h1>
+            <p className="text-gray-400 text-sm">Chat with Telangana Open Data</p>
           </header>
-
-          <div className="flex-grow flex flex-col rounded-xl bg-black shadow-inner">
-            <div className="flex-grow overflow-y-auto space-y-4 p-4 scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-gray-700 scrollbar-track-gray-800">
-              {chatHistory.length === 0 && (
-                <div className="flex items-center justify-center h-full text-center text-gray-500">
-                  <p>Start chatting or upload a CSV file to get insights.</p>
-                </div>
-              )}
-              {chatHistory.map((chat, index) => (
-                <div
-                  key={index}
-                  className={`flex ${
-                    chat.role === "user" ? "justify-end" : "justify-start"
-                  }`}
-                >
-                  <div
-                    className={`max-w-xl p-3 rounded-xl shadow-md ${
-                      chat.role === "user"
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-800 text-gray-200"
-                    }`}
-                  >
-                    {chat.type === "loading" ? (
-                      <span className="animate-pulse">⏳ Thinking...</span>
-                    ) : (
-                      chat.content
-                    )}
+          <div className="flex-grow bg-black rounded-xl shadow-inner overflow-y-auto p-2">
+            {chatHistory.length === 0 ? (
+              <div className="flex items-center justify-center h-full text-gray-500">Start chatting or upload a CSV file.</div>
+            ) : (
+              chatHistory.map((chat, idx) => (
+                <div key={idx} className={`flex ${chat.role === "user" ? "justify-end" : "justify-start"} mb-2`}>
+                  <div className={`max-w-3/4 p-2 rounded-lg hover:scale-102 transition-all ${chat.role === "user" ? "bg-blue-600 text-white" : "bg-gray-800 text-gray-200"}`}>
+                    {chat.type === "loading" ? <span className="animate-pulse">⏳ Thinking...</span> : chat.content}
                   </div>
                 </div>
-              ))}
-              <div ref={chatEndRef} />
-            </div>
+              ))
+            )}
+            <div ref={chatEndRef}></div>
+          </div>
 
-            <div className="p-4 border-t border-gray-800">
-              {/* Upload Section */}
-              {!datasetUploaded && (
-                <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
-                  <label className="flex-grow flex items-center px-4 py-2 bg-purple-600 text-white rounded-md cursor-pointer hover:bg-purple-700 transition-colors justify-center">
-                    Select CSV Files
-                    <input
-                      type="file"
-                      ref={fileInputRef}
-                      className="hidden"
-                      accept=".csv"
-                      multiple
-                      onChange={handleFileChange}
-                    />
-                  </label>
-                  <button
-                    onClick={handleUpload}
-                    disabled={loading || selectedFiles.length === 0}
-                    className={`px-6 py-2 rounded-md font-semibold text-white transition-colors ${
-                      loading || selectedFiles.length === 0
-                        ? "bg-gray-700 cursor-not-allowed"
-                        : "bg-blue-600 hover:bg-blue-700"
-                    }`}
-                  >
-                    {loading ? "Processing..." : "Upload & Analyze"}
-                  </button>
-                </div>
-              )}
-
-              {/* File List with Year Input */}
-              {selectedFiles.length > 0 && (
-                <ul className="mt-4 space-y-2 max-h-48 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-gray-700 scrollbar-track-gray-800">
-                  {selectedFiles.map((file, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center justify-between p-2 bg-gray-800 text-white rounded-md shadow-sm"
-                    >
-                      <span className="text-sm font-medium truncate">
-                        {file.name}
-                      </span>
-                      <input
-                        type="number"
-                        placeholder="Year"
-                        value={years[index] || ""}
-                        onChange={(e) =>
-                          handleYearChange(index, e.target.value)
-                        }
-                        className="w-24 px-2 py-1 text-sm border border-gray-700 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      />
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              <div className="flex items-center space-x-4 mt-4">
-                <input
-                  type="text"
-                  className="flex-grow px-4 py-2 bg-black text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 transition-shadow"
-                  placeholder={
-                    loading ? "Thinking..." : "Type any kind of query.."
-                  }
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-                  disabled={loading}
-                />
+          <div className="mt-2">
+            {!datasetUploaded && (
+              <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2 mb-2">
+                <label className="flex-grow flex items-center justify-center px-4 py-2 bg-purple-600 rounded-md cursor-pointer hover:bg-purple-700">
+                  Select CSV Files
+                  <input type="file" ref={fileInputRef} className="hidden" accept=".csv" multiple onChange={handleFileChange} />
+                </label>
                 <button
-                  onClick={handleSendMessage}
-                  disabled={loading}
-                  className={`px-6 py-2 rounded-md font-semibold text-white transition-colors ${
-                    loading
-                      ? "bg-gray-700 cursor-not-allowed"
-                      : "bg-purple-600 hover:bg-purple-700"
-                  }`}
+                  onClick={handleUpload}
+                  disabled={loading || selectedFiles.length === 0}
+                  className={`px-4 py-2 rounded-md font-semibold text-white ${loading || selectedFiles.length === 0 ? "bg-gray-700 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
                 >
-                  Send
+                  {loading ? "Processing..." : "Upload & Analyze"}
                 </button>
               </div>
+            )}
+
+            {selectedFiles.length > 0 && (
+              <ul className="max-h-40 overflow-y-auto space-y-1">
+                {selectedFiles.map((file, idx) => (
+                  <li key={idx} className="flex justify-between items-center p-2 bg-blue-800 rounded-md">
+                    <span className="truncate text-sm">{file.name}</span>
+                    <input
+                      type="number"
+                      placeholder="Year"
+                      value={years[idx] || ""}
+                      onChange={(e) => handleYearChange(idx, e.target.value)}
+                      className="w-20 px-1 py-0.5 text-sm rounded-md border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500 bg-black text-white"
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <div className="flex mt-2 space-x-2">
+              <input
+                type="text"
+                placeholder={loading ? "Thinking..." : "Type any query.."}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+                disabled={loading}
+                className="flex-grow px-3 py-1 rounded-md border border-gray-700 bg-black text-white focus:outline-none focus:ring-1 focus:ring-purple-500"
+              />
+              <button
+                onClick={handleSendMessage}
+                disabled={loading}
+                className={`px-4 py-1 rounded-md text-white font-semibold ${loading ? "bg-gray-700 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700"}`}
+              >
+                Send
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Right Panel - Insights & Plots */}
-        <div className="flex-grow flex flex-col md:w-1/2 p-6 overflow-hidden">
-          {/* Top Box - Insights */}
-          <div className="flex-grow-0 max-h-[50%] flex flex-col justify-start items-start w-full bg-black border-b border-gray-800 p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-black">
-            <h2 className="text-xl font-bold text-white mb-2">Insights</h2>
+        {/* Right Panel */}
+        <div className="flex flex-col w-full md:w-2/3 p-4 space-y-2 min-h-screen md:h-full overflow-y-auto">
+          {/* Insights */}
+          <div className="flex-1 bg-black p-2 rounded-md border-b border-gray-800 min-h-screen md:min-h-0 overflow-y-auto">
+            <h2 className="text-lg font-bold text-purple-400 mb-2">Insights</h2>
             {cleanedReady ? (
-              <div className="w-full flex flex-col items-center">
-                <div className="flex justify-center w-full mb-4">
+              <>
+                <div className="flex mb-2 space-x-2">
                   <button
-                    onClick={() =>
-                      window.open(
-                        "http://localhost:2601/api/download-cleaned",
-                        "_blank"
-                      )
-                    }
-                    className="px-6 py-2 transition-all hover:scale-108 hover:-translate-y-2 bg-green-600 hover:bg-green-500 rounded-md font-semibold text-white mr-4"
+                    onClick={() => window.open("http://localhost:2601/api/download-cleaned", "_blank")}
+                    className="px-4 py-1 rounded-md bg-green-600 hover:bg-green-500 text-white font-semibold"
                   >
                     Download Cleaned Dataset
                   </button>
                   <button
                     onClick={generateInsights}
                     disabled={loading || insightsGenerated}
-                    className={`px-6 py-2 rounded-md font-semibold text-white transition-colors ${
-                      loading || insightsGenerated
-                        ? "bg-gray-700 cursor-not-allowed"
-                        : "bg-blue-600 hover:bg-blue-700"
-                    }`}
+                    className={`px-4 py-1 rounded-md font-semibold text-white ${loading || insightsGenerated ? "bg-gray-700 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
                   >
                     {loading ? "Generating..." : "Generate Insights"}
                   </button>
                 </div>
                 {insightsContent ? (
-                  <div className="text-gray-200 whitespace-pre-wrap">
-                    {insightsContent}
-                  </div>
+                  <pre className="text-gray-200 whitespace-pre-wrap">{insightsContent}</pre>
                 ) : (
-                  <p className="text-gray-500 text-center">
-                    Click 'Generate Insights' to begin.
-                  </p>
+                  <p className="text-gray-500">Click 'Generate Insights' to begin.</p>
                 )}
-              </div>
+              </>
             ) : (
-              <p className="text-gray-500 mb-4">
-                Refined file not generated yet
-              </p>
+              <p className="text-gray-500">Refined file not generated yet.</p>
             )}
           </div>
 
-          {/* Bottom Box - Plots / Graphs */}
-          <div className="flex-grow flex flex-col justify-center items-center w-full bg-black p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-black">
-            <h2 className="text-xl font-bold text-white mb-2">
-              Data Visualization
-            </h2>
+          {/* Plots */}
+          <div className="flex-1 bg-black p-2 rounded-md min-h-screen md:min-h-0 overflow-y-auto">
+            <h2 className="text-lg font-bold text-purple-400 mb-2">Data Visualization</h2>
             {plotUrl ? (
-              <div className="flex flex-col items-center space-y-4">
-                <img
-                  src={plotUrl}
-                  alt="Data visualization"
-                  className="max-w-full rounded-lg"
-                />
+              <div className="flex flex-col items-center space-y-2">
+                <img src={plotUrl} alt="Data visualization" className="max-w-full rounded-md" />
                 <button
                   onClick={() => {
                     const link = document.createElement("a");
@@ -483,15 +287,13 @@ const Interface = () => {
                     link.click();
                     document.body.removeChild(link);
                   }}
-                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-md font-semibold text-white transition-colors"
+                  className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-semibold"
                 >
                   Download Plot
                 </button>
               </div>
             ) : (
-              <p className="text-gray-500 text-center">
-                Graphs and charts will appear here after analysis.
-              </p>
+              <p className="text-gray-500 text-center">Graphs will appear here after analysis.</p>
             )}
           </div>
         </div>
