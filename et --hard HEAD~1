@@ -1,0 +1,97 @@
+[33mcommit 2944fcc4b2121aabfdea6b79f66425ea5604bdc4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 22:21:14 2025 +0530
+
+    added plot generation
+
+[33mcommit 79c0dd0e28bd7817f650fad268a636f1a5c08f81[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 20:19:37 2025 +0530
+
+    updated both chatting and insights functioanlity
+
+[33mcommit 167e7d2b6576d99548090dad98a7477b182c1f03[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 19:38:35 2025 +0530
+
+    added AI agent to reply to any kind of msg related or not related to the dataset
+
+[33mcommit 7a3d8bffd3ef68fdb0a648b91c134beee34b5482[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 18:59:28 2025 +0530
+
+    added insights generation
+
+[33mcommit 6ed02a9ead33d35882571c354bef14842263e4d8[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 18:10:41 2025 +0530
+
+    resloved backend issues and working on backend insights
+
+[33mcommit 47fca0bb4b18ef8f00f1e37fe3f2c56cbcd84014[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 14:34:22 2025 +0530
+
+    uploading file and cleaning resloved 14:34 06/09/2025
+
+[33mcommit 7d605f7ab4e39f6e3a6a3236ed21c868fdca83db[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 11:07:56 2025 +0530
+
+    updated server.js and initialized dataprocessor.py
+
+[33mcommit 801f39d881ea025c5cd607c0a6aa080d94591caf[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 11:05:21 2025 +0530
+
+    updated server.js and initialized dataprocessor.py
+
+[33mcommit 3d3b35f220d7ff6e8190954739385f1ee5f105fd[m
+Author: VarshiniNeralla <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 10:14:54 2025 +0530
+
+    fillings
+
+[33mcommit 51246dade8a0a41b1cdd41db50e7c4c215c80d86[m
+Author: Varshini Neralla <166322022+VarshiniNeralla@users.noreply.github.com>
+Date:   Sat Sep 6 09:22:34 2025 +0530
+
+    Updated README.md, added all necessary details.
+
+[33mcommit c9faac67e33b518ec3e640f4e578274fa0391971[m
+Author: Varshini <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 09:19:47 2025 +0530
+
+    Initial cleaned Telangana MSME dataset and backend server setup
+    
+    Tag: d1-morn
+
+[33mcommit e3291c9d5e1e3834a3f8298e0a2df28555f1f822[m
+Author: Varshini <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 01:04:08 2025 +0530
+
+    Initialised backend and installed req node modules 01:03 06/09/25
+
+[33mcommit 7adc55cdee36183f581c2777e6f11cb081f6c57d[m
+Author: Varshini <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 00:50:09 2025 +0530
+
+    Initalized frontend 00:49 06/09/2025
+
+[33mcommit 99d5f022c793d7c9d90215a18fe9465932583fe4[m
+Author: Varshini Neralla <166322022+VarshiniNeralla@users.noreply.github.com>
+Date:   Sat Sep 6 00:39:32 2025 +0530
+
+    Create README.md
+
+[33mcommit 497d5e00a95d7077ec375a03b2768527d7675b65[m
+Author: Varshini <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 00:29:20 2025 +0530
+
+    Empty repo
+
+[33mcommit 8e7199155d4a4b0b4bde488cf2fa60448f55bf87[m
+Author: Varshini <nerallavarshini@gmail.com>
+Date:   Sat Sep 6 00:28:02 2025 +0530
+
+    Initial commit
