@@ -1,6 +1,10 @@
-district,mandal,industry_category,type_of_industry,unit_name,line_of_activity,investment,employement,present_status,export,type_of_connection,ie_or_not
-Hyderabad,Amberpet,SMALL,Proprietary,DURGA PRINTERS,Cardboard or corrugated box and paper products (excluding paper or pulp manufacturing and without using boilers),200000,3,Working,No,HT,NO
-Hyderabad,Amberpet,SMALL,Pvt Ltd,LODH VISUAL AIDS,"Gravure printing, digital printing on flex, vinyl",350000,5,Working,No,HT,NO
-Hyderabad,Amberpet,MEDIUM,Proprietary,VITAL THEARAPEUTICS PVT LTD,Tyres and tubes vulcanization/ hot retreating,300000,3,Working,No,HT,NO
-Hyderabad,Amberpet,SMALL,Proprietary,A.N.S. FEBS AND ENGINEERING WORKS,Fish processing and packing (excluding chilling of fishes),200000,2,Working,No,HT,NO
-Hyderabad,Amberpet,SMALL,Pvt Ltd,YOUNG INDIA CANE CRAFT,"Cement products (without using asbestos / boiler / steam curing) like pipe ,pillar, jafri, well ring, block/tiles etc.(should be done in closed covered shed to control fugitive emissions)",200000,2,Working,No,HT,NO
+unit_name,ie_or_not,industry_category,district_name,mandal_name,employment,line_of_activity,investment,presentstatus,typeofindustry,export,typeofconnection
+"M/S, JAMUNA STONE CRUSHER",NO,SMALL,Adilabad,Utnoor,9,Stone crushers,210.0,Working,Proprietary,No,LT
+M/S.JAMUNA STONE CRUSHER,NO,SMALL,Adilabad,Utnoor,9,Stone crushers,210.0,Working,Proprietary,No,LT
+M/s Om Bricks,NO,MICRO,Asifabad,Wankdi,6,Fly ash bricks/ block manufacturing,24.54,Working,Proprietary,No,LT
+AB WASTE MANAGEMENT,NO,MICRO,Gadwal,Ieej,11,Reprocessing of waste plastic Including PVC,70.0,Working,Proprietary,No,HT
+JAPS DUCTFAB PVT LTD,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),162.0,Working,Pvt Ltd,No,LT
+"""M/s SVAGO INTERIORS""",NO,MICRO,Hanumakonda,Khaazipet,9,"Carpentry & wooden furniture manufacturing (excluding saw mill) with the help of electrical (motorized) machines such as electrical wood planner, steel saw cutting circular blade, etc",82.0,Working,Partnership,No,LT
+FU,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),170.0,Working,Pvt Ltd,No,LT
+FUAIR CONDITIONING INDIA PVT LTD,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),170.0,Working,Pvt Ltd,No,LT
+Create a bar chart showing the total number of registrations for each district

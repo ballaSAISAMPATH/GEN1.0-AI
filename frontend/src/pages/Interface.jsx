@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Interface = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -109,13 +110,19 @@ const Interface = () => {
 
     try {
       const response = await axios.post("http://localhost:2601/user/api/chat", { message: userMessage });
-      setChatHistory((prev) => {
-        const updated = [...prev];
-        if (response.data.success) {
-          updated[placeholderIndex] = { role: "ai", content: response.data.text };
-        }
-        return updated;
-      });
+      
+      const newChatHistory = [...chatHistory, { role: "user", content: userMessage }];
+
+      if (response.data.plotUrl) {
+          setPlotUrl(response.data.plotUrl);
+          newChatHistory.push({ role: "ai", content: response.data.text });
+      } else {
+          newChatHistory.push({ role: "ai", content: response.data.text });
+          setPlotUrl('');
+      }
+
+      setChatHistory(newChatHistory);
+
     } catch (error) {
       console.error("Chat failed:", error);
       toast.error(`Error: ${error.response?.data?.error || error.message}`);
@@ -162,9 +169,9 @@ const Interface = () => {
       <div className="absolute left-1/2 bottom-1/3 w-64 h-64 bg-fuchsia-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-[blob_15s_ease-in-out_4s_infinite]"></div>
       <div className="absolute inset-0 bg-black bg-opacity-70 backdrop-filter backdrop-blur-md"></div>
 
-      <div className="relative z-10 flex flex-col md:flex-row h-screen md:overflow-hidden">
+      <div className="relative z-10 w-full h-full flex flex-col fle-wrap md:flex-row overflow-hidden">
         {/* Left Chat Panel */}
-        <div className="flex flex-col w-full md:w-2/3 border-r border-gray-800 p-4 min-h-screen md:h-full overflow-y-auto">
+        <div className="flex flex-col md:w-1/2 h-full border-r border-gray-800 p-4">
           <header className="text-center mb-4">
             <h1 className="text-2xl font-bold text-purple-400">RTGS AI Analyst</h1>
             <p className="text-gray-400 text-sm">Chat with Telangana Open Data</p>
@@ -240,10 +247,10 @@ const Interface = () => {
         </div>
 
         {/* Right Panel */}
-        <div className="flex flex-col w-full md:w-2/3 p-4 space-y-2 min-h-screen md:h-full overflow-y-auto">
+        <div className="flex flex-col md:w-2/3 h-full p-4 space-y-2 overflow-hidden">
           {/* Insights */}
-          <div className="flex-1 bg-black p-2 rounded-md border-b border-gray-800 min-h-screen md:min-h-0 overflow-y-auto">
-            <h2 className="text-lg font-bold text-purple-400 mb-2">Insights</h2>
+          <div className="flex-1 overflow-y-auto bg-black p-2 rounded-md border-b border-gray-800">
+            <h2 className="text-lg font-bold text-white mb-2">Insights</h2>
             {cleanedReady ? (
               <>
                 <div className="flex mb-2 space-x-2">
@@ -273,24 +280,21 @@ const Interface = () => {
           </div>
 
           {/* Plots */}
-          <div className="flex-1 bg-black p-2 rounded-md min-h-screen md:min-h-0 overflow-y-auto">
-            <h2 className="text-lg font-bold text-purple-400 mb-2">Data Visualization</h2>
+          <div className="flex-1 overflow-y-auto bg-black p-2 rounded-md">
+            <h2 className="text-lg font-bold text-white mb-2">Data Visualization</h2>
             {plotUrl ? (
               <div className="flex flex-col items-center space-y-2">
                 <img src={plotUrl} alt="Data visualization" className="max-w-full rounded-md" />
-                <button
+                {/* <button
                   onClick={() => {
-                    const link = document.createElement("a");
-                    link.href = plotUrl;
-                    link.download = "data_visualization.png";
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }}
+    const filename = plotUrl.split('/').pop();
+    const downloadUrl = `http://localhost:2601/download-plot/${filename}`;
+    window.open(downloadUrl, '_blank');
+}}
                   className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-semibold"
                 >
                   Download Plot
-                </button>
+                </button> */}
               </div>
             ) : (
               <p className="text-gray-500 text-center">Graphs will appear here after analysis.</p>

@@ -1,0 +1,133 @@
+2025-09-06 21:10:49,688 - INFO - Python script started.
+2025-09-06 21:10:49,689 - INFO - Attempting to load data from stdin.
+2025-09-06 21:10:49,694 - INFO - Data loaded successfully.
+2025-09-06 21:10:49,694 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
+2025-09-06 21:10:50,094 - CRITICAL - An unexpected error occurred: no numeric data to plot
+Traceback (most recent call last):
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 99, in <module>
+    plot_file = create_bar_chart(df, columns, output_filename, title)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 26, in create_bar_chart
+    df.groupby(columns[0])[columns[1]].sum().plot(kind='bar', figsize=(10, 6), color='skyblue')
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_core.py", line 1030, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\__init__.py", line 71, in plot
+    plot_obj.generate()
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\core.py", line 499, in generate
+    self._compute_plot_data()
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\core.py", line 698, in _compute_plot_data
+    raise TypeError("no numeric data to plot")
+TypeError: no numeric data to plot
+2025-09-06 21:13:08,759 - INFO - Python script started.
+2025-09-06 21:13:08,759 - INFO - Attempting to load data from stdin.
+2025-09-06 21:13:08,764 - INFO - Data loaded successfully.
+2025-09-06 21:13:08,764 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
+2025-09-06 21:13:09,949 - CRITICAL - An unexpected error occurred: [Errno 2] No such file or directory: 'C:\\Users\\bspsa\\Documents\\code\\MERN\\varshi\\AgenticAi\\backend\\public\\images\\plot_1757173386955.png'
+Traceback (most recent call last):
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 126, in <module>
+    plot_file = create_bar_chart(df, columns, output_filename, title)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 44, in create_bar_chart
+    plt.savefig(filename)
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\pyplot.py", line 1251, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\figure.py", line 3490, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\backend_bases.py", line 2186, in print_figure
+    result = print_method(
+             ^^^^^^^^^^^^^
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\backend_bases.py", line 2042, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\backends\backend_agg.py", line 481, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\backends\backend_agg.py", line 430, in _print_pil
+    mpl.image.imsave(
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\image.py", line 1657, in imsave
+    image.save(fname, **pil_kwargs)
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\PIL\Image.py", line 2583, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\bspsa\\Documents\\code\\MERN\\varshi\\AgenticAi\\backend\\public\\images\\plot_1757173386955.png'
+2025-09-06 21:14:40,850 - INFO - Python script started.
+2025-09-06 21:14:40,850 - INFO - Creating output directory: C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images
+2025-09-06 21:14:40,852 - INFO - Attempting to load data from stdin.
+2025-09-06 21:14:40,857 - INFO - Data loaded successfully.
+2025-09-06 21:14:40,858 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
+2025-09-06 21:14:41,439 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757173479357.png
+2025-09-06 21:14:41,440 - INFO - Plotting function executed successfully.
+2025-09-06 21:19:26,858 - INFO - Python script started.
+2025-09-06 21:19:26,859 - INFO - Attempting to load data from stdin.
+2025-09-06 21:19:26,863 - INFO - Data loaded successfully.
+2025-09-06 21:19:26,863 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
+2025-09-06 21:19:27,427 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757173765078.png
+2025-09-06 21:19:27,427 - INFO - Plotting function executed successfully.
+2025-09-06 21:30:34,257 - INFO - Python script started.
+2025-09-06 21:30:34,258 - INFO - Creating output directory: C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images
+2025-09-06 21:30:34,259 - INFO - Attempting to load data from stdin.
+2025-09-06 21:30:34,263 - INFO - Data loaded successfully.
+2025-09-06 21:30:34,263 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
+2025-09-06 21:30:34,760 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757174432466.png
+2025-09-06 21:30:34,760 - INFO - Plotting function executed successfully.
+2025-09-06 21:36:40,468 - INFO - Python script started.
+2025-09-06 21:36:40,469 - INFO - Attempting to load data from stdin.
+2025-09-06 21:36:40,473 - INFO - Data loaded successfully.
+2025-09-06 21:36:40,474 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
+2025-09-06 21:36:41,019 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757174798757.png
+2025-09-06 21:36:41,019 - INFO - Plotting function executed successfully.
+2025-09-06 21:44:23,284 - INFO - Python script started.
+2025-09-06 21:44:23,284 - INFO - Attempting to load data from stdin.
+2025-09-06 21:44:23,291 - INFO - Data loaded successfully.
+2025-09-06 21:44:23,291 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
+2025-09-06 21:44:23,868 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757175261373.png
+2025-09-06 21:44:23,868 - INFO - Plotting function executed successfully.
+2025-09-06 21:48:36,482 - INFO - Python script started.
+2025-09-06 21:48:36,483 - INFO - Attempting to load data from stdin.
+2025-09-06 21:48:36,488 - INFO - Data loaded successfully.
+2025-09-06 21:48:36,488 - INFO - Creating bar chart with columns: ['district_name', 'investment']
+2025-09-06 21:48:36,976 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757175515112.png
+2025-09-06 21:48:36,976 - INFO - Plotting function executed successfully.
+2025-09-06 21:53:12,580 - INFO - Python script started.
+2025-09-06 21:53:12,580 - INFO - Attempting to load data from stdin.
+2025-09-06 21:53:12,584 - INFO - Data loaded successfully.
+2025-09-06 21:53:12,584 - INFO - Creating bar chart with columns: ['unit_name', 'investment']
+2025-09-06 21:53:13,564 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757175789313.png
+2025-09-06 21:53:13,564 - INFO - Plotting function executed successfully.
+2025-09-06 22:01:40,396 - INFO - Python script started.
+2025-09-06 22:01:40,397 - INFO - Attempting to load data from stdin.
+2025-09-06 22:01:40,405 - INFO - Data loaded successfully.
+2025-09-06 22:01:40,405 - INFO - Creating bar chart with columns: ['district_name', 'employment']
+2025-09-06 22:01:41,171 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757176298336.png
+2025-09-06 22:01:41,172 - INFO - Plotting function executed successfully.
+2025-09-06 22:07:37,492 - INFO - Python script started.
+2025-09-06 22:07:37,493 - INFO - Attempting to load data from stdin.
+2025-09-06 22:07:37,499 - INFO - Data loaded successfully.
+2025-09-06 22:07:37,499 - INFO - Creating bar chart with columns: ['district_name', 'employment']
+2025-09-06 22:07:38,081 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757176655783.png
+2025-09-06 22:07:38,082 - INFO - Plotting function executed successfully.
+2025-09-06 22:08:48,257 - INFO - Python script started.
+2025-09-06 22:08:48,258 - INFO - Attempting to load data from stdin.
+2025-09-06 22:08:48,261 - INFO - Data loaded successfully.
+2025-09-06 22:08:48,261 - INFO - Creating bar chart with columns: ['district_name', 'employment']
+2025-09-06 22:08:48,833 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757176726861.png
+2025-09-06 22:08:48,833 - INFO - Plotting function executed successfully.
+2025-09-06 22:11:03,028 - INFO - Python script started.
+2025-09-06 22:11:03,029 - INFO - Attempting to load data from stdin.
+2025-09-06 22:11:03,031 - INFO - Data loaded successfully.
+2025-09-06 22:11:03,031 - INFO - Creating bar chart with columns: ['district_name', 'employment']
+2025-09-06 22:11:03,536 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757176861488.png
+2025-09-06 22:11:03,536 - INFO - Plotting function executed successfully.
+2025-09-06 22:11:58,902 - INFO - Python script started.
+2025-09-06 22:11:58,903 - INFO - Attempting to load data from stdin.
+2025-09-06 22:11:58,905 - INFO - Data loaded successfully.
+2025-09-06 22:11:58,905 - INFO - Creating bar chart with columns: ['district_name', 'employment']
+2025-09-06 22:11:59,318 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757176917592.png
+2025-09-06 22:11:59,318 - INFO - Plotting function executed successfully.
+2025-09-06 22:17:30,786 - INFO - Python script started.
+2025-09-06 22:17:30,787 - INFO - Attempting to load data from stdin.
+2025-09-06 22:17:30,789 - INFO - Data loaded successfully.
+2025-09-06 22:17:30,789 - INFO - Creating bar chart with columns: ['district_name', 'employment']
+2025-09-06 22:17:31,251 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757177249234.png
+2025-09-06 22:17:31,251 - INFO - Plotting function executed successfully.
