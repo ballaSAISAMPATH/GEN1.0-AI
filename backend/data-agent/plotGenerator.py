@@ -345,8 +345,6 @@ if __name__ == "__main__":
             plot_file = create_bubble_chart(df, columns, output_filename, title)
         elif chart_type == "radar":
             plot_file = create_radar_chart(df, columns, output_filename, title)
-        elif chart_type == "grouped_bar":
-            plot_file = create_grouped_bar(df, columns, output_filename, title)
         elif chart_type == "multi_line":
             plot_file = create_multi_line(df, columns, output_filename, title)
         elif chart_type == "stacked_area":
