@@ -78,7 +78,12 @@ const Interface = () => {
         setInsightsGenerated(false);
         setChatHistory((prev) => [
           ...prev,
-          { role: "ai", content: "Dataset uploaded successfully! You can now ask questions.", type: "info" }
+          {
+            role: "ai",
+            content:
+              "Dataset uploaded successfully! You can now ask questions.",
+            type: "info",
+          },
         ]);
         setSelectedFiles([]);
         setYears({});
@@ -103,32 +108,39 @@ const Interface = () => {
     setChatHistory((prev) => [
       ...prev,
       { role: "user", content: userMessage },
-      { role: "ai", content: "", type: "loading" }
+      { role: "ai", content: "", type: "loading" },
     ]);
 
     const placeholderIndex = chatHistory.length + 1;
 
     try {
-      const response = await axios.post("http://localhost:2601/user/api/chat", { message: userMessage });
-      
-      const newChatHistory = [...chatHistory, { role: "user", content: userMessage }];
+      const response = await axios.post("http://localhost:2601/user/api/chat", {
+        message: userMessage,
+      });
+
+      const newChatHistory = [
+        ...chatHistory,
+        { role: "user", content: userMessage },
+      ];
 
       if (response.data.plotUrl) {
-          setPlotUrl(response.data.plotUrl);
-          newChatHistory.push({ role: "ai", content: response.data.text });
+        setPlotUrl(response.data.plotUrl);
+        newChatHistory.push({ role: "ai", content: response.data.text });
       } else {
-          newChatHistory.push({ role: "ai", content: response.data.text });
-          setPlotUrl('');
+        newChatHistory.push({ role: "ai", content: response.data.text });
+        setPlotUrl("");
       }
 
       setChatHistory(newChatHistory);
-
     } catch (error) {
       console.error("Chat failed:", error);
       toast.error(`Error: ${error.response?.data?.error || error.message}`);
       setChatHistory((prev) => {
         const updated = [...prev];
-        updated[placeholderIndex] = { role: "ai", content: `Error: ${error.response?.data?.error || error.message}` };
+        updated[placeholderIndex] = {
+          role: "ai",
+          content: `Error: ${error.response?.data?.error || error.message}`,
+        };
         return updated;
       });
     } finally {
@@ -173,17 +185,38 @@ const Interface = () => {
         {/* Left Chat Panel */}
         <div className="flex flex-col md:w-1/2 h-full border-r border-gray-800 p-4">
           <header className="text-center mb-4">
-            <h1 className="text-2xl font-bold text-purple-400">RTGS AI Analyst</h1>
-            <p className="text-gray-400 text-sm">Chat with Telangana Open Data</p>
+            <h1 className="text-2xl font-bold text-purple-400">
+              RTGS AI Analyst
+            </h1>
+            <p className="text-gray-400 text-sm">
+              Chat with Telangana Open Data
+            </p>
           </header>
           <div className="flex-grow bg-black rounded-xl shadow-inner overflow-y-auto p-2">
             {chatHistory.length === 0 ? (
-              <div className="flex items-center justify-center h-full text-gray-500">Start chatting or upload a CSV file.</div>
+              <div className="flex items-center justify-center h-full text-gray-500">
+                Start chatting or upload a CSV file.
+              </div>
             ) : (
               chatHistory.map((chat, idx) => (
-                <div key={idx} className={`flex ${chat.role === "user" ? "justify-end" : "justify-start"} mb-2`}>
-                  <div className={`max-w-3/4 p-2 rounded-lg hover:scale-102 transition-all ${chat.role === "user" ? "bg-blue-600 text-white" : "bg-gray-800 text-gray-200"}`}>
-                    {chat.type === "loading" ? <span className="animate-pulse">⏳ Thinking...</span> : chat.content}
+                <div
+                  key={idx}
+                  className={`flex ${
+                    chat.role === "user" ? "justify-end" : "justify-start"
+                  } mb-2`}
+                >
+                  <div
+                    className={`max-w-3/4 p-2 rounded-lg hover:scale-102 transition-all ${
+                      chat.role === "user"
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-800 text-gray-200"
+                    }`}
+                  >
+                    {chat.type === "loading" ? (
+                      <span className="animate-pulse">⏳ Thinking...</span>
+                    ) : (
+                      chat.content
+                    )}
                   </div>
                 </div>
               ))
@@ -196,12 +229,23 @@ const Interface = () => {
               <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2 mb-2">
                 <label className="flex-grow flex items-center justify-center px-4 py-2 bg-purple-600 rounded-md cursor-pointer hover:bg-purple-700">
                   Select CSV Files
-                  <input type="file" ref={fileInputRef} className="hidden" accept=".csv" multiple onChange={handleFileChange} />
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    className="hidden"
+                    accept=".csv"
+                    multiple
+                    onChange={handleFileChange}
+                  />
                 </label>
                 <button
                   onClick={handleUpload}
                   disabled={loading || selectedFiles.length === 0}
-                  className={`px-4 py-2 rounded-md font-semibold text-white ${loading || selectedFiles.length === 0 ? "bg-gray-700 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
+                  className={`px-4 py-2 rounded-md font-semibold text-white ${
+                    loading || selectedFiles.length === 0
+                      ? "bg-gray-700 cursor-not-allowed"
+                      : "bg-blue-600 hover:bg-blue-700"
+                  }`}
                 >
                   {loading ? "Processing..." : "Upload & Analyze"}
                 </button>
@@ -211,7 +255,10 @@ const Interface = () => {
             {selectedFiles.length > 0 && (
               <ul className="max-h-40 overflow-y-auto space-y-1">
                 {selectedFiles.map((file, idx) => (
-                  <li key={idx} className="flex justify-between items-center p-2 bg-blue-800 rounded-md">
+                  <li
+                    key={idx}
+                    className="flex justify-between items-center p-2 bg-blue-800 rounded-md"
+                  >
                     <span className="truncate text-sm">{file.name}</span>
                     <input
                       type="number"
@@ -238,7 +285,11 @@ const Interface = () => {
               <button
                 onClick={handleSendMessage}
                 disabled={loading}
-                className={`px-4 py-1 rounded-md text-white font-semibold ${loading ? "bg-gray-700 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700"}`}
+                className={`px-4 py-1 rounded-md text-white font-semibold ${
+                  loading
+                    ? "bg-gray-700 cursor-not-allowed"
+                    : "bg-purple-600 hover:bg-purple-700"
+                }`}
               >
                 Send
               </button>
@@ -255,7 +306,12 @@ const Interface = () => {
               <>
                 <div className="flex mb-2 space-x-2">
                   <button
-                    onClick={() => window.open("http://localhost:2601/api/download-cleaned", "_blank")}
+                    onClick={() =>
+                      window.open(
+                        "http://localhost:2601/api/download-cleaned",
+                        "_blank"
+                      )
+                    }
                     className="px-4 py-1 rounded-md bg-green-600 hover:bg-green-500 text-white font-semibold"
                   >
                     Download Cleaned Dataset
@@ -263,15 +319,23 @@ const Interface = () => {
                   <button
                     onClick={generateInsights}
                     disabled={loading || insightsGenerated}
-                    className={`px-4 py-1 rounded-md font-semibold text-white ${loading || insightsGenerated ? "bg-gray-700 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
+                    className={`px-4 py-1 rounded-md font-semibold text-white ${
+                      loading || insightsGenerated
+                        ? "bg-gray-700 cursor-not-allowed"
+                        : "bg-blue-600 hover:bg-blue-700"
+                    }`}
                   >
                     {loading ? "Generating..." : "Generate Insights"}
                   </button>
                 </div>
                 {insightsContent ? (
-                  <pre className="text-gray-200 whitespace-pre-wrap">{insightsContent}</pre>
+                  <pre className="text-gray-200 whitespace-pre-wrap">
+                    {insightsContent}
+                  </pre>
                 ) : (
-                  <p className="text-gray-500">Click 'Generate Insights' to begin.</p>
+                  <p className="text-gray-500">
+                    Click 'Generate Insights' to begin.
+                  </p>
                 )}
               </>
             ) : (
@@ -281,23 +345,31 @@ const Interface = () => {
 
           {/* Plots */}
           <div className="flex-1 overflow-y-auto bg-black p-2 rounded-md">
-            <h2 className="text-lg font-bold text-white mb-2">Data Visualization</h2>
+            <h2 className="text-lg font-bold text-white mb-2">
+              Data Visualization
+            </h2>
             {plotUrl ? (
               <div className="flex flex-col items-center space-y-2">
-                <img src={plotUrl} alt="Data visualization" className="max-w-full rounded-md" />
-                {/* <button
+                <img
+                  src={plotUrl}
+                  alt="Data visualization"
+                  className="max-w-full rounded-md"
+                />
+                <button
                   onClick={() => {
-    const filename = plotUrl.split('/').pop();
-    const downloadUrl = `http://localhost:2601/download-plot/${filename}`;
-    window.open(downloadUrl, '_blank');
-}}
+                    const filename = plotUrl.split("/").pop();
+                    const downloadUrl = `http://localhost:2601/public/images/${filename}`;
+                    window.open(downloadUrl, "_blank");
+                  }}
                   className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-semibold"
                 >
                   Download Plot
-                </button> */}
+                </button>
               </div>
             ) : (
-              <p className="text-gray-500 text-center">Graphs will appear here after analysis.</p>
+              <p className="text-gray-500 text-center">
+                Graphs will appear here after analysis.
+              </p>
             )}
           </div>
         </div>

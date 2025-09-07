@@ -10,7 +10,6 @@ configDotenv();
 const systemInstruction = "Act as a highly skilled data analyst. Respond to user queries based on the provided dataset. If the question is not about the data, answer it as a general conversational AI. If the question is vulgar, harmful, or inappropriate, refuse to answer politely. Provide concise, brief answers in short paragraphs or lines to keep the chat fluid.";
 
 /**
- * Generates a plot based on the provided data and sends the image URL to the client.
  * @param {Array<Object>} parsedData - The dataset parsed from the CSV.
  * @param {object} plotDetails - An object containing the chart type, columns, and title.
  * @param {object} res - The Express response object.
