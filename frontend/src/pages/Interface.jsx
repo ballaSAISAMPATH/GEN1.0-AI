@@ -402,8 +402,8 @@ useEffect(() => {
                 </button>
               </div>
             ) : (
-              <p className="text-gray-500 text-center">
-                Graphs will appear here when requested and can be downloaded.
+              <p className="text-gray-500 text-center p-20">
+                Charts and graphs will be displayed here upon request. You can also generate them by specifying the type, such as a bar, pie, line, scatter, histogram, or heatmap.
               </p>
             )}
           </div>
