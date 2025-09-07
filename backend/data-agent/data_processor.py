@@ -15,10 +15,8 @@ def log(message):
     logging.info(message)
 
 def standardize_dataframe(df):
-    # Drop fully empty columns
     df.dropna(axis=1, how='all', inplace=True)
     
-    # Normalize column names
     df.columns = [str(col).strip().lower().replace(" ", "_") for col in df.columns]
     log(f"Standardized column names: {df.columns.tolist()}")
     return df
@@ -28,7 +26,6 @@ def clean_dataframe(df):
     df.drop_duplicates(inplace=True)
     log(f"Removed {before - len(df)} duplicate rows")
     
-    # Numeric columns: attempt conversion only for specific columns
     numeric_cols = ['investment', 'employement']
     for col in numeric_cols:
         if col in df.columns:
@@ -39,7 +36,6 @@ def clean_dataframe(df):
                 df[col].fillna(median_val, inplace=True)
                 log(f"Filled {missing} missing values in {col} with median {median_val}")
     
-    # Categorical columns: fill missing
     for col in df.select_dtypes(include='object').columns:
         missing = df[col].isna().sum()
         if missing > 0:

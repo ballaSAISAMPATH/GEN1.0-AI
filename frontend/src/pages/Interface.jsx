@@ -185,7 +185,7 @@ const Interface = () => {
         {/* Left Chat Panel */}
         <div className="flex flex-col md:w-1/2 h-full border-r border-gray-800 p-4">
           <header className="text-center mb-4">
-            <h1 className="text-2xl font-bold text-purple-400">
+            <h1 className="text-2xl font-bold text-purple-600">
               RTGS AI Analyst
             </h1>
             <p className="text-gray-400 text-sm">
@@ -301,7 +301,7 @@ const Interface = () => {
         <div className="flex flex-col md:w-2/3 h-full p-4 space-y-2 overflow-hidden">
           {/* Insights */}
           <div className="flex-1 overflow-y-auto bg-black p-2 rounded-md border-b border-gray-800">
-            <h2 className="text-lg font-bold text-white mb-2">Insights</h2>
+            <h2 className="text-lg font-bold text-purple-600 mb-2">Insights</h2>
             {cleanedReady ? (
               <>
                 <div className="flex mb-2 space-x-2">
@@ -345,7 +345,7 @@ const Interface = () => {
 
           {/* Plots */}
           <div className="flex-1 overflow-y-auto bg-black p-2 rounded-md">
-            <h2 className="text-lg font-bold text-white mb-2">
+            <h2 className="text-lg font-bold text-purple-600 mb-2">
               Data Visualization
             </h2>
             {plotUrl ? (
@@ -358,8 +358,8 @@ const Interface = () => {
                 <button
                   onClick={() => {
                     const filename = plotUrl.split("/").pop();
-                    const downloadUrl = `http://localhost:2601/public/images/${filename}`;
-                    window.open(downloadUrl, "_blank");
+                    const downloadUrl = `http://localhost:2601/download-plot/${filename}`;
+                    window.open(downloadUrl, "_blank"); 
                   }}
                   className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-semibold"
                 >

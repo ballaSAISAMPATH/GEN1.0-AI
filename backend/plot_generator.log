@@ -94,3 +94,187 @@
 2025-09-07 16:27:27,842 - INFO - Creating bar chart with columns: ['district_name', 'employment']
 2025-09-07 16:27:28,651 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757242645546.png
 2025-09-07 16:27:28,652 - INFO - Plotting function executed successfully.
+2025-09-07 17:27:48,642 - INFO - Python script started.
+2025-09-07 17:27:48,643 - INFO - Attempting to load data from stdin.
+2025-09-07 17:27:48,647 - INFO - Data loaded successfully.
+2025-09-07 17:27:48,647 - INFO - Creating radar chart with columns: ['industry_category', 'employment']
+2025-09-07 17:27:49,156 - INFO - Radar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757246254776.png
+2025-09-07 17:27:49,156 - INFO - Plotting function executed successfully.
+2025-09-07 17:29:50,655 - INFO - Python script started.
+2025-09-07 17:29:50,655 - INFO - Attempting to load data from stdin.
+2025-09-07 17:29:50,657 - INFO - Data loaded successfully.
+2025-09-07 17:29:50,657 - INFO - Creating grouped bar chart with columns: ['industry_category', 'typeofindustry']
+2025-09-07 17:29:50,657 - ERROR - Failed to create the requested plot.
+2025-09-07 17:34:07,989 - INFO - Python script started.
+2025-09-07 17:34:07,990 - INFO - Attempting to load data from stdin.
+2025-09-07 17:34:07,996 - INFO - Data loaded successfully.
+2025-09-07 17:34:07,996 - INFO - Creating bar chart with columns: ['industry_category', 'employment']
+2025-09-07 17:34:08,508 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757246643809.png
+2025-09-07 17:34:08,508 - INFO - Plotting function executed successfully.
+2025-09-07 17:34:23,743 - INFO - Python script started.
+2025-09-07 17:34:23,744 - INFO - Attempting to load data from stdin.
+2025-09-07 17:34:23,746 - INFO - Data loaded successfully.
+2025-09-07 17:34:23,746 - INFO - Creating grouped bar chart with columns: ['industry_category', 'employment']
+2025-09-07 17:34:23,746 - ERROR - Failed to create the requested plot.
+2025-09-07 17:38:52,265 - INFO - Python script started.
+2025-09-07 17:38:52,265 - INFO - Attempting to load data from stdin.
+2025-09-07 17:38:52,269 - INFO - Data loaded successfully.
+2025-09-07 17:38:52,269 - INFO - Creating heatmap for correlation matrix.
+2025-09-07 17:38:52,790 - INFO - Heatmap saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757246927831.png
+2025-09-07 17:38:52,790 - INFO - Plotting function executed successfully.
+2025-09-07 17:41:20,253 - INFO - Python script started.
+2025-09-07 17:41:20,254 - INFO - Attempting to load data from stdin.
+2025-09-07 17:41:20,260 - INFO - Data loaded successfully.
+2025-09-07 17:41:20,261 - INFO - Creating stacked bar chart with columns: ['industry_category', 'typeofindustry']
+2025-09-07 17:41:20,261 - ERROR - Failed to create the requested plot.
+2025-09-07 17:41:32,083 - INFO - Python script started.
+2025-09-07 17:41:32,084 - INFO - Attempting to load data from stdin.
+2025-09-07 17:41:32,085 - INFO - Data loaded successfully.
+2025-09-07 17:41:32,085 - INFO - Creating stacked bar chart with columns: ['industry_category', 'typeofindustry']
+2025-09-07 17:41:32,085 - ERROR - Failed to create the requested plot.
+2025-09-07 17:46:36,941 - INFO - Python script started.
+2025-09-07 17:46:36,942 - INFO - Attempting to load data from stdin.
+2025-09-07 17:46:36,946 - INFO - Data loaded successfully.
+2025-09-07 17:46:36,946 - INFO - Creating stacked bar chart with columns: ['industry_category', 'typeofindustry', 'investment']
+2025-09-07 17:46:37,026 - CRITICAL - An unexpected error occurred: no numeric data to plot
+Traceback (most recent call last):
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 341, in <module>
+    plot_file = create_stacked_bar(df, columns, output_filename, title)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 147, in create_stacked_bar
+    pivot_df.plot(kind="bar", stacked=True, figsize=(10, 6))
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_core.py", line 1030, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\__init__.py", line 71, in plot
+    plot_obj.generate()
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\core.py", line 499, in generate
+    self._compute_plot_data()
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\core.py", line 698, in _compute_plot_data
+    raise TypeError("no numeric data to plot")
+TypeError: no numeric data to plot
+2025-09-07 17:47:56,618 - INFO - Python script started.
+2025-09-07 17:47:56,618 - INFO - Attempting to load data from stdin.
+2025-09-07 17:47:56,620 - INFO - Data loaded successfully.
+2025-09-07 17:47:56,620 - INFO - Creating heatmap for correlation matrix.
+2025-09-07 17:47:57,110 - INFO - Heatmap saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247473849.png
+2025-09-07 17:47:57,110 - INFO - Plotting function executed successfully.
+2025-09-07 17:49:23,991 - INFO - Python script started.
+2025-09-07 17:49:23,991 - INFO - Attempting to load data from stdin.
+2025-09-07 17:49:23,993 - INFO - Data loaded successfully.
+2025-09-07 17:49:23,993 - INFO - Creating line chart with columns: ['investment', 'line_of_activity']
+2025-09-07 17:49:24,329 - INFO - Line chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247561022.png
+2025-09-07 17:49:24,329 - INFO - Plotting function executed successfully.
+2025-09-07 17:49:44,324 - INFO - Python script started.
+2025-09-07 17:49:44,325 - INFO - Attempting to load data from stdin.
+2025-09-07 17:49:44,326 - INFO - Data loaded successfully.
+2025-09-07 17:49:44,326 - INFO - Creating bar chart with columns: ['employment', 'district_name']
+2025-09-07 17:49:44,664 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247581368.png
+2025-09-07 17:49:44,664 - INFO - Plotting function executed successfully.
+2025-09-07 17:50:01,488 - INFO - Python script started.
+2025-09-07 17:50:01,488 - INFO - Attempting to load data from stdin.
+2025-09-07 17:50:01,490 - INFO - Data loaded successfully.
+2025-09-07 17:50:01,490 - INFO - Creating scatter plot with columns: ['employment', 'investment']
+2025-09-07 17:50:01,832 - INFO - Scatter plot saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247598599.png
+2025-09-07 17:50:01,832 - INFO - Plotting function executed successfully.
+2025-09-07 17:50:15,907 - INFO - Python script started.
+2025-09-07 17:50:15,907 - INFO - Attempting to load data from stdin.
+2025-09-07 17:50:15,909 - INFO - Data loaded successfully.
+2025-09-07 17:50:15,909 - INFO - Creating histogram for column: employment
+2025-09-07 17:50:16,252 - INFO - Histogram saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247612758.png
+2025-09-07 17:50:16,252 - INFO - Plotting function executed successfully.
+2025-09-07 17:50:30,930 - INFO - Python script started.
+2025-09-07 17:50:30,930 - INFO - Attempting to load data from stdin.
+2025-09-07 17:50:30,931 - INFO - Data loaded successfully.
+2025-09-07 17:50:30,932 - INFO - Creating box plot for columns: ['employment', 'investment']
+2025-09-07 17:50:31,370 - INFO - Box plot saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247628218.png
+2025-09-07 17:50:31,370 - INFO - Plotting function executed successfully.
+2025-09-07 17:50:44,003 - INFO - Python script started.
+2025-09-07 17:50:44,004 - INFO - Attempting to load data from stdin.
+2025-09-07 17:50:44,005 - INFO - Data loaded successfully.
+2025-09-07 17:50:44,005 - INFO - Creating area chart with columns: ['employment', 'investment']
+2025-09-07 17:50:44,362 - INFO - Area chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247640884.png
+2025-09-07 17:50:44,362 - INFO - Plotting function executed successfully.
+2025-09-07 17:50:58,146 - INFO - Python script started.
+2025-09-07 17:50:58,147 - INFO - Attempting to load data from stdin.
+2025-09-07 17:50:58,148 - INFO - Data loaded successfully.
+2025-09-07 17:50:58,148 - INFO - Creating donut chart for column: ie_or_not
+2025-09-07 17:50:58,430 - INFO - Donut chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247655245.png
+2025-09-07 17:50:58,430 - INFO - Plotting function executed successfully.
+2025-09-07 17:51:11,435 - INFO - Python script started.
+2025-09-07 17:51:11,436 - INFO - Attempting to load data from stdin.
+2025-09-07 17:51:11,439 - INFO - Data loaded successfully.
+2025-09-07 17:51:11,439 - INFO - Creating bubble chart with columns: ['investment', 'export', 'employment']
+2025-09-07 17:51:11,751 - INFO - Bubble chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247668396.png
+2025-09-07 17:51:11,751 - INFO - Plotting function executed successfully.
+2025-09-07 17:51:26,987 - INFO - Python script started.
+2025-09-07 17:51:26,988 - INFO - Attempting to load data from stdin.
+2025-09-07 17:51:26,990 - INFO - Data loaded successfully.
+2025-09-07 17:51:26,990 - INFO - Creating radar chart with columns: ['employment', 'investment', 'export']
+2025-09-07 17:51:27,333 - INFO - Radar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247684092.png
+2025-09-07 17:51:27,333 - INFO - Plotting function executed successfully.
+2025-09-07 17:51:43,787 - INFO - Python script started.
+2025-09-07 17:51:43,787 - INFO - Attempting to load data from stdin.
+2025-09-07 17:51:43,790 - INFO - Data loaded successfully.
+2025-09-07 17:51:43,790 - INFO - Creating multi-line chart with columns: ['investment', 'export']
+2025-09-07 17:51:43,790 - ERROR - Failed to create the requested plot.
+2025-09-07 17:52:18,431 - INFO - Python script started.
+2025-09-07 17:52:18,431 - INFO - Attempting to load data from stdin.
+2025-09-07 17:52:18,433 - INFO - Data loaded successfully.
+2025-09-07 17:52:18,433 - INFO - Creating stacked bar chart with columns: ['industry_category', 'typeofindustry', 'employment']
+2025-09-07 17:52:18,470 - CRITICAL - An unexpected error occurred: no numeric data to plot
+Traceback (most recent call last):
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 341, in <module>
+    plot_file = create_stacked_bar(df, columns, output_filename, title)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 147, in create_stacked_bar
+    pivot_df.plot(kind="bar", stacked=True, figsize=(10, 6))
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_core.py", line 1030, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\__init__.py", line 71, in plot
+    plot_obj.generate()
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\core.py", line 499, in generate
+    self._compute_plot_data()
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\core.py", line 698, in _compute_plot_data
+    raise TypeError("no numeric data to plot")
+TypeError: no numeric data to plot
+2025-09-07 17:52:51,621 - INFO - Python script started.
+2025-09-07 17:52:51,622 - INFO - Attempting to load data from stdin.
+2025-09-07 17:52:51,625 - INFO - Data loaded successfully.
+2025-09-07 17:52:51,625 - INFO - Creating stacked bar chart with columns: ['industry_category', 'typeofindustry', 'investment']
+2025-09-07 17:52:51,650 - CRITICAL - An unexpected error occurred: no numeric data to plot
+Traceback (most recent call last):
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 341, in <module>
+    plot_file = create_stacked_bar(df, columns, output_filename, title)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\plotGenerator.py", line 147, in create_stacked_bar
+    pivot_df.plot(kind="bar", stacked=True, figsize=(10, 6))
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_core.py", line 1030, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\__init__.py", line 71, in plot
+    plot_obj.generate()
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\core.py", line 499, in generate
+    self._compute_plot_data()
+  File "C:\Users\bspsa\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\plotting\_matplotlib\core.py", line 698, in _compute_plot_data
+    raise TypeError("no numeric data to plot")
+TypeError: no numeric data to plot
+2025-09-07 17:53:38,411 - INFO - Python script started.
+2025-09-07 17:53:38,411 - INFO - Attempting to load data from stdin.
+2025-09-07 17:53:38,412 - INFO - Data loaded successfully.
+2025-09-07 17:53:38,413 - INFO - Creating stacked area chart with columns: ['investment', 'export', 'typeofindustry']
+2025-09-07 17:53:38,782 - INFO - Stacked area chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247815468.png
+2025-09-07 17:53:38,784 - INFO - Plotting function executed successfully.
+2025-09-07 17:54:16,574 - INFO - Python script started.
+2025-09-07 17:54:16,575 - INFO - Attempting to load data from stdin.
+2025-09-07 17:54:16,576 - INFO - Data loaded successfully.
+2025-09-07 17:54:16,576 - INFO - Creating bar chart with columns: ['employment', 'industry_category']
+2025-09-07 17:54:16,923 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757247853670.png
+2025-09-07 17:54:16,923 - INFO - Plotting function executed successfully.
+2025-09-07 17:57:10,816 - INFO - Python script started.
+2025-09-07 17:57:10,817 - INFO - Attempting to load data from stdin.
+2025-09-07 17:57:10,821 - INFO - Data loaded successfully.
+2025-09-07 17:57:10,822 - INFO - Creating pie chart for column: ie_or_not
+2025-09-07 17:57:11,232 - INFO - Pie chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757248027135.png
+2025-09-07 17:57:11,232 - INFO - Plotting function executed successfully.
