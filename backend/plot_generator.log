@@ -284,3 +284,33 @@ TypeError: no numeric data to plot
 2025-09-07 18:25:39,039 - INFO - Creating pie chart for column: district_name
 2025-09-07 18:25:39,645 - INFO - Pie chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757249727574.png
 2025-09-07 18:25:39,645 - INFO - Plotting function executed successfully.
+2025-09-07 20:15:01,102 - INFO - Python script started.
+2025-09-07 20:15:01,103 - INFO - Attempting to load data from stdin.
+2025-09-07 20:15:01,105 - INFO - Data loaded successfully.
+2025-09-07 20:15:01,105 - INFO - Creating pie chart for column: district_name
+2025-09-07 20:15:02,328 - INFO - Pie chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757256284254.png
+2025-09-07 20:15:02,328 - INFO - Plotting function executed successfully.
+2025-09-07 20:15:51,686 - INFO - Python script started.
+2025-09-07 20:15:51,686 - INFO - Attempting to load data from stdin.
+2025-09-07 20:15:51,690 - INFO - Data loaded successfully.
+2025-09-07 20:15:51,690 - INFO - Creating bar chart with columns: ['employment', 'industry_category']
+2025-09-07 20:15:52,340 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757256348152.png
+2025-09-07 20:15:52,340 - INFO - Plotting function executed successfully.
+2025-09-07 20:16:19,168 - INFO - Python script started.
+2025-09-07 20:16:19,169 - INFO - Attempting to load data from stdin.
+2025-09-07 20:16:19,170 - INFO - Data loaded successfully.
+2025-09-07 20:16:19,170 - INFO - Creating heatmap for correlation matrix.
+2025-09-07 20:16:19,619 - INFO - Heatmap saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757256376196.png
+2025-09-07 20:16:19,619 - INFO - Plotting function executed successfully.
+2025-09-07 20:18:36,655 - INFO - Python script started.
+2025-09-07 20:18:36,656 - INFO - Attempting to load data from stdin.
+2025-09-07 20:18:36,658 - INFO - Data loaded successfully.
+2025-09-07 20:18:36,658 - INFO - Creating pie chart for column: district_name
+2025-09-07 20:18:37,206 - INFO - Pie chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757256513049.png
+2025-09-07 20:18:37,206 - INFO - Plotting function executed successfully.
+2025-09-07 20:19:02,631 - INFO - Python script started.
+2025-09-07 20:19:02,631 - INFO - Attempting to load data from stdin.
+2025-09-07 20:19:02,633 - INFO - Data loaded successfully.
+2025-09-07 20:19:02,633 - INFO - Creating heatmap for correlation matrix.
+2025-09-07 20:19:03,176 - INFO - Heatmap saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757256539157.png
+2025-09-07 20:19:03,176 - INFO - Plotting function executed successfully.
