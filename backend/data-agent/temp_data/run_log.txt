@@ -1,1 +1,19 @@
-[2025-09-07T08:53:08.807Z] Server listening at http://localhost:2601
+[2025-09-07T09:51:31.088Z] Server listening at http://localhost:2601
+[2025-09-07T09:51:45.483Z] Starting new data ingestion & analysis run.
+[2025-09-07T09:51:45.486Z] Processing raw_1757238705445-328938147_ts_industry_msme_01-08-2025_31-08-2025.csv
+[2025-09-07 15:21:48,897] Starting processing for C:\Users\neral\Desktop\new\AgenticAi\backend\data-agent\temp_data\raw_1757238705445-328938147_ts_industry_msme_01-08-2025_31-08-2025.csv
+[2025-09-07T09:51:48.898Z] STDOUT: [2025-09-07 15:21:48,897] Starting processing for C:\Users\neral\Desktop\new\AgenticAi\backend\data-agent\temp_data\raw_1757238705445-328938147_ts_industry_msme_01-08-2025_31-08-2025.csv
+
+[2025-09-07 15:21:48,935] Standardized column names: ['unit_name', 'ie_or_not', 'industry_category', 'district_name', 'mandal_name', 'employment', 'line_of_activity', 'investment', 'presentstatus', 'typeofindustry', 'export', 'typeofconnection']
+[2025-09-07T09:51:48.936Z] STDOUT: [2025-09-07 15:21:48,935] Standardized column names: ['unit_name', 'ie_or_not', 'industry_category', 'district_name', 'mandal_name', 'employment', 'line_of_activity', 'investment', 'presentstatus', 'typeofindustry', 'export', 'typeofconnection']
+
+[2025-09-07 15:21:48,956] Removed 0 duplicate rows
+[2025-09-07T09:51:48.956Z] STDOUT: [2025-09-07 15:21:48,956] Removed 0 duplicate rows
+
+[2025-09-07 15:21:48,979] Saved final cleaned CSV: C:\Users\neral\Desktop\new\AgenticAi\backend\data-agent\temp_data\cleaned\cleaned.csv
+[2025-09-07 15:21:48,979] Processing complete!
+[2025-09-07T09:51:48.979Z] STDOUT: [2025-09-07 15:21:48,979] Saved final cleaned CSV: C:\Users\neral\Desktop\new\AgenticAi\backend\data-agent\temp_data\cleaned\cleaned.csv
+
+[2025-09-07T09:51:48.983Z] STDOUT: [2025-09-07 15:21:48,979] Processing complete!
+
+[2025-09-07T09:51:49.066Z] All files cleaned successfully.
