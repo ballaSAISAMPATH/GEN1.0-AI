@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 const Interface = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [years, setYears] = useState({});
@@ -122,6 +121,7 @@ const Interface = () => {
         ...chatHistory,
         { role: "user", content: userMessage },
       ];
+      console.log(response.data.text);
 
       if (response.data.plotUrl) {
         setPlotUrl(response.data.plotUrl);
@@ -174,16 +174,9 @@ const Interface = () => {
           background-color: #3b82f6;
         }
       `}</style>
-
-      {/* Background circles */}
-      <div className="absolute left-1/4 top-1/4 w-48 h-48 bg-purple-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-[blob_15s_ease-in-out_infinite]"></div>
-      <div className="absolute right-1/4 bottom-1/4 w-56 h-56 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-[blob_15s_ease-in-out_2s_infinite]"></div>
-      <div className="absolute left-1/2 bottom-1/3 w-64 h-64 bg-fuchsia-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-[blob_15s_ease-in-out_4s_infinite]"></div>
-      <div className="absolute inset-0 bg-black bg-opacity-70 backdrop-filter backdrop-blur-md"></div>
-
       <div className="relative z-10 w-full h-full flex flex-col fle-wrap md:flex-row overflow-hidden">
         {/* Left Chat Panel */}
-        <div className="flex flex-col md:w-1/2 h-full border-r border-gray-800 p-4">
+        <div className="flex flex-col md:w-2/3 h-full border-r border-gray-800 p-4">
           <header className="text-center mb-4">
             <h1 className="text-2xl font-bold text-purple-600">
               RTGS AI Analyst
@@ -192,10 +185,15 @@ const Interface = () => {
               Chat with Telangana Open Data
             </p>
           </header>
-          <div className="flex-grow bg-black rounded-xl shadow-inner overflow-y-auto p-2">
+          <div className="flex-grow bg-black/50 rounded-xl shadow-inner overflow-y-auto p-2">
             {chatHistory.length === 0 ? (
               <div className="flex items-center justify-center h-full text-gray-500">
                 Start chatting or upload a CSV file.
+                <br />
+                enter text like " hi , how are you? " and look how the custom AI{" "}
+                <br />
+                or any query relevant to the dataset after uploading..{" "}
+                <one className="br"></one>
               </div>
             ) : (
               chatHistory.map((chat, idx) => (
@@ -215,7 +213,14 @@ const Interface = () => {
                     {chat.type === "loading" ? (
                       <span className="animate-pulse">⏳ Thinking...</span>
                     ) : (
-                      chat.content
+                      <div>
+                        {chat.content.split("\n").map((line, i) => (
+                          <span key={i}>
+                            {line}
+                            <br />
+                          </span>
+                        ))}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -339,7 +344,11 @@ const Interface = () => {
                 )}
               </>
             ) : (
-              <p className="text-gray-500">Refined file not generated yet.</p>
+              <p className="text-gray-500">
+                - Refined file not generated yet.
+                <br />- insights generation appears once the dataset is
+                uploaded.
+              </p>
             )}
           </div>
 
@@ -359,7 +368,7 @@ const Interface = () => {
                   onClick={() => {
                     const filename = plotUrl.split("/").pop();
                     const downloadUrl = `http://localhost:2601/download-plot/${filename}`;
-                    window.open(downloadUrl, "_blank"); 
+                    window.open(downloadUrl, "_blank");
                   }}
                   className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-semibold"
                 >
@@ -368,7 +377,7 @@ const Interface = () => {
               </div>
             ) : (
               <p className="text-gray-500 text-center">
-                Graphs will appear here after analysis.
+                Graphs will appear here after analysis and can be downloaded.
               </p>
             )}
           </div>
