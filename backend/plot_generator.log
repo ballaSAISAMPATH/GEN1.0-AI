@@ -88,3 +88,9 @@
 2025-09-06 22:17:30,789 - INFO - Creating bar chart with columns: ['district_name', 'employment']
 2025-09-06 22:17:31,251 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757177249234.png
 2025-09-06 22:17:31,251 - INFO - Plotting function executed successfully.
+2025-09-07 16:27:27,837 - INFO - Python script started.
+2025-09-07 16:27:27,838 - INFO - Attempting to load data from stdin.
+2025-09-07 16:27:27,842 - INFO - Data loaded successfully.
+2025-09-07 16:27:27,842 - INFO - Creating bar chart with columns: ['district_name', 'employment']
+2025-09-07 16:27:28,651 - INFO - Bar chart saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757242645546.png
+2025-09-07 16:27:28,652 - INFO - Plotting function executed successfully.
