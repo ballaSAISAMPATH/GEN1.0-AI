@@ -1,0 +1,29 @@
+git clone https://github.com/VarshiniNeralla/AgenticAi.git
+cd AgenticAi/
+FRONTEND :
+cd .\frontend\
+npm i
+npm run dev
+BACKEND :
+cd .\backend\
+ npm i
+nodemon server.js (or) node server.js
+
+
+the app runs at localhost:5173
+
+AI CHAT :
+you can chat normally as it has an AI embedded in it 
+input : hey how are you 
+and wait for the reply 
+and it also analyses and replies to questions about the dataset
+input : generate a piechart of district column
+and wait to see the results
+
+INSIGHTS :
+once the dataset is uploaded the insights and the download cleaned dataset are available
+the cleaned dataset can be downloaded and insights can be generated.
+
+LOG FILES:
+
+log files are available in backend>plot_generator.log
