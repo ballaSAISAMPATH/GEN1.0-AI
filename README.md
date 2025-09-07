@@ -153,5 +153,4 @@ POST /user/api/chat
 
 
 
-Do you also want me to include a **data flow diagram (ASCII or image-based)** that shows:
-`Upload → Cleaning → Storage → Insights API → Frontend` for extra clarity in your README?
+
