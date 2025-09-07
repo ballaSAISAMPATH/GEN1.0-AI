@@ -15,6 +15,13 @@ const Interface = () => {
   const [cleanedReady, setCleanedReady] = useState(false);
   const [insightsContent, setInsightsContent] = useState("");
   const [insightsGenerated, setInsightsGenerated] = useState(false);
+useEffect(() => {
+  const textarea = document.getElementById("chat-input");
+  if (textarea) {
+    textarea.style.height = "auto"; // reset height
+    textarea.style.height = textarea.scrollHeight + "px"; // set to content height
+  }
+}, [message]);
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
@@ -185,7 +192,7 @@ const Interface = () => {
               Chat with Telangana Open Data
             </p>
           </header>
-          <div className="flex-grow bg-black/50 rounded-xl shadow-inner overflow-y-auto p-2">
+          <div className="flex-grow border-y border-y-gray-500 bg-black/50 rounded-xl shadow-inner overflow-y-auto p-2">
             {chatHistory.length === 0 ? (
               <div className="flex items-center justify-center h-full text-gray-500">
                 Start chatting or upload a CSV file.
@@ -193,7 +200,6 @@ const Interface = () => {
                 enter text like " hi , how are you? " and look how the custom AI{" "}
                 <br />
                 or any query relevant to the dataset after uploading..{" "}
-                <one className="br"></one>
               </div>
             ) : (
               chatHistory.map((chat, idx) => (
@@ -206,8 +212,8 @@ const Interface = () => {
                   <div
                     className={`max-w-3/4 p-2 rounded-lg hover:scale-102 transition-all ${
                       chat.role === "user"
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-800 text-gray-200"
+                        ? "bg-blue-600 text-white border-e-2 border-e-white"
+                        : "bg-gray-800 text-gray-200 border-s-2 border-s-white"
                     }`}
                   >
                     {chat.type === "loading" ? (
@@ -278,15 +284,21 @@ const Interface = () => {
             )}
 
             <div className="flex mt-2 space-x-2">
-              <input
-                type="text"
-                placeholder={loading ? "Thinking..." : "Type any query.."}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-                disabled={loading}
-                className="flex-grow px-3 py-1 rounded-md border border-gray-700 bg-black text-white focus:outline-none focus:ring-1 focus:ring-purple-500"
-              />
+              <textarea
+              id="chat-input"
+  placeholder={loading ? "Thinking..." : "Type any query.."}
+  value={message}
+  onChange={(e) => setMessage(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // prevent newline
+      handleSendMessage();
+    }
+  }}
+  rows={1}
+  className="w-full px-3 py-2 rounded-md border border-gray-700 bg-black text-white focus:outline-none focus:ring-1 focus:ring-purple-500 resize-none overflow-hidden"
+/>
+
               <button
                 onClick={handleSendMessage}
                 disabled={loading}
@@ -305,56 +317,70 @@ const Interface = () => {
         {/* Right Panel */}
         <div className="flex flex-col md:w-2/3 h-full p-4 space-y-2 overflow-hidden">
           {/* Insights */}
-          <div className="flex-1 overflow-y-auto bg-black p-2 rounded-md border-b border-gray-800">
-            <h2 className="text-lg font-bold text-purple-600 mb-2">Insights</h2>
-            {cleanedReady ? (
-              <>
-                <div className="flex mb-2 space-x-2">
-                  <button
-                    onClick={() =>
-                      window.open(
-                        "http://localhost:2601/api/download-cleaned",
-                        "_blank"
-                      )
-                    }
-                    className="px-4 py-1 rounded-md bg-green-600 hover:bg-green-500 text-white font-semibold"
-                  >
-                    Download Cleaned Dataset
-                  </button>
-                  <button
-                    onClick={generateInsights}
-                    disabled={loading || insightsGenerated}
-                    className={`px-4 py-1 rounded-md font-semibold text-white ${
-                      loading || insightsGenerated
-                        ? "bg-gray-700 cursor-not-allowed"
-                        : "bg-blue-600 hover:bg-blue-700"
-                    }`}
-                  >
-                    {loading ? "Generating..." : "Generate Insights"}
-                  </button>
-                </div>
-                {insightsContent ? (
-                  <pre className="text-gray-200 whitespace-pre-wrap">
-                    {insightsContent}
-                  </pre>
-                ) : (
-                  <p className="text-gray-500">
-                    Click 'Generate Insights' to begin.
-                  </p>
-                )}
-              </>
-            ) : (
-              <p className="text-gray-500">
-                - Refined file not generated yet.
-                <br />- insights generation appears once the dataset is
-                uploaded.
-              </p>
-            )}
-          </div>
+         <div className="flex-1 overflow-y-auto bg-black p-4 rounded-lg border border-gray-800">
+  <h2 className="text-2xl font-bold text-purple-500 mb-4">Insights</h2>
+
+  {cleanedReady ? (
+    <>
+      <div className="flex flex-wrap gap-2 mb-4">
+        <button
+          onClick={() =>
+            window.open("http://localhost:2601/api/download-cleaned", "_blank")
+          }
+          className="px-4 py-2 rounded-md bg-green-600 hover:bg-green-500 text-white font-semibold shadow-md transition"
+        >
+          Download Cleaned Dataset
+        </button>
+        <button
+          onClick={generateInsights}
+          disabled={loading || insightsGenerated}
+          className={`px-4 py-2 rounded-md font-semibold text-white shadow-md transition ${
+            loading || insightsGenerated
+              ? "bg-gray-700 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700"
+          }`}
+        >
+          {loading ? "Generating..." : "Generate Insights"}
+        </button>
+      </div>
+
+      {insightsContent ? (
+        <div className="bg-black border-y p-4 rounded-lg shadow-inner text-gray-100 space-y-4">
+  {insightsContent.split("\n\n").map((section, idx) => (
+    <div key={idx} className="space-y-2">
+      {section.split("\n").map((line, index) => {
+        if (line.startsWith("**") && line.endsWith("**")) {
+          return (
+            <h3
+              key={index}
+              className="text-lg font-bold text-sky-400 border-s-4 p-2 border-sky-400"
+            >
+              {line.replace(/\*\*/g, "")}
+            </h3>
+          );
+        }
+        return <p key={index} className="text-gray-300">{line}</p>;
+      })}
+    </div>
+  ))}
+</div>
+      ) : (
+        <p className="text-gray-400">Click 'Generate Insights' to begin.</p>
+      )}
+    </>
+  ) : (
+    <p className="text-gray-500 space-y-1">
+      - Refined file not generated yet.
+      <br />
+      - Insights generation appears once the dataset is uploaded.
+    </p>
+  )}
+</div>
+
 
           {/* Plots */}
           <div className="flex-1 overflow-y-auto bg-black p-2 rounded-md">
-            <h2 className="text-lg font-bold text-purple-600 mb-2">
+            <h2 className="text-2xl font-bold text-purple-600 mb-2">
               Data Visualization
             </h2>
             {plotUrl ? (
@@ -377,7 +403,7 @@ const Interface = () => {
               </div>
             ) : (
               <p className="text-gray-500 text-center">
-                Graphs will appear here after analysis and can be downloaded.
+                Graphs will appear here when requested and can be downloaded.
               </p>
             )}
           </div>

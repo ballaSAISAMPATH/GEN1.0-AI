@@ -17,3 +17,56 @@
 [2025-09-07T12:55:14.674Z] STDOUT: [2025-09-07 18:25:14,672] Processing complete!
 
 [2025-09-07T12:55:14.757Z] All files cleaned successfully.
+[2025-09-07T13:17:32.036Z] Starting new data ingestion & analysis run.
+[2025-09-07T13:17:32.048Z] Processing raw_1757251052026-314080689_ts_industry_msme_01-08-2025_31-08-2025.csv
+[2025-09-07 18:47:33,963] Starting processing for C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\raw_1757251052026-314080689_ts_industry_msme_01-08-2025_31-08-2025.csv
+[2025-09-07T13:17:33.965Z] STDOUT: [2025-09-07 18:47:33,963] Starting processing for C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\raw_1757251052026-314080689_ts_industry_msme_01-08-2025_31-08-2025.csv
+
+[2025-09-07 18:47:33,986] Standardized column names: ['unit_name', 'ie_or_not', 'industry_category', 'district_name', 'mandal_name', 'employment', 'line_of_activity', 'investment', 'presentstatus', 'typeofindustry', 'export', 'typeofconnection']
+[2025-09-07T13:17:33.987Z] STDOUT: [2025-09-07 18:47:33,986] Standardized column names: ['unit_name', 'ie_or_not', 'industry_category', 'district_name', 'mandal_name', 'employment', 'line_of_activity', 'investment', 'presentstatus', 'typeofindustry', 'export', 'typeofconnection']
+
+[2025-09-07 18:47:34,001] Removed 0 duplicate rows
+[2025-09-07T13:17:34.003Z] STDOUT: [2025-09-07 18:47:34,001] Removed 0 duplicate rows
+
+[2025-09-07 18:47:34,020] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\cleaned\cleaned.csv
+[2025-09-07 18:47:34,021] Processing complete!
+[2025-09-07T13:17:34.021Z] STDOUT: [2025-09-07 18:47:34,020] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\cleaned\cleaned.csv
+[2025-09-07 18:47:34,021] Processing complete!
+
+[2025-09-07T13:17:34.229Z] All files cleaned successfully.
+[2025-09-07T13:34:36.734Z] Starting new data ingestion & analysis run.
+[2025-09-07T13:34:36.740Z] Processing raw_1757252076728-500026009_ts_industry_msme_01-08-2025_31-08-2025.csv
+[2025-09-07 19:04:38,436] Starting processing for C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\raw_1757252076728-500026009_ts_industry_msme_01-08-2025_31-08-2025.csv
+[2025-09-07T13:34:38.437Z] STDOUT: [2025-09-07 19:04:38,436] Starting processing for C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\raw_1757252076728-500026009_ts_industry_msme_01-08-2025_31-08-2025.csv
+
+[2025-09-07 19:04:38,457] Standardized column names: ['unit_name', 'ie_or_not', 'industry_category', 'district_name', 'mandal_name', 'employment', 'line_of_activity', 'investment', 'presentstatus', 'typeofindustry', 'export', 'typeofconnection']
+[2025-09-07T13:34:38.458Z] STDOUT: [2025-09-07 19:04:38,457] Standardized column names: ['unit_name', 'ie_or_not', 'industry_category', 'district_name', 'mandal_name', 'employment', 'line_of_activity', 'investment', 'presentstatus', 'typeofindustry', 'export', 'typeofconnection']
+
+[2025-09-07 19:04:38,471] Removed 0 duplicate rows
+[2025-09-07T13:34:38.472Z] STDOUT: [2025-09-07 19:04:38,471] Removed 0 duplicate rows
+
+[2025-09-07 19:04:38,487] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\cleaned\cleaned.csv
+[2025-09-07 19:04:38,487] Processing complete!
+[2025-09-07T13:34:38.488Z] STDOUT: [2025-09-07 19:04:38,487] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\cleaned\cleaned.csv
+
+[2025-09-07T13:34:38.491Z] STDOUT: [2025-09-07 19:04:38,487] Processing complete!
+
+[2025-09-07T13:34:38.707Z] All files cleaned successfully.
+[2025-09-07T13:37:05.813Z] Starting new data ingestion & analysis run.
+[2025-09-07T13:37:05.819Z] Processing raw_1757252225806-869266621_ts_industry_msme_01-08-2025_31-08-2025.csv
+[2025-09-07 19:07:07,220] Starting processing for C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\raw_1757252225806-869266621_ts_industry_msme_01-08-2025_31-08-2025.csv
+[2025-09-07T13:37:07.221Z] STDOUT: [2025-09-07 19:07:07,220] Starting processing for C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\raw_1757252225806-869266621_ts_industry_msme_01-08-2025_31-08-2025.csv
+
+[2025-09-07 19:07:07,243] Standardized column names: ['unit_name', 'ie_or_not', 'industry_category', 'district_name', 'mandal_name', 'employment', 'line_of_activity', 'investment', 'presentstatus', 'typeofindustry', 'export', 'typeofconnection']
+[2025-09-07T13:37:07.243Z] STDOUT: [2025-09-07 19:07:07,243] Standardized column names: ['unit_name', 'ie_or_not', 'industry_category', 'district_name', 'mandal_name', 'employment', 'line_of_activity', 'investment', 'presentstatus', 'typeofindustry', 'export', 'typeofconnection']
+
+[2025-09-07 19:07:07,257] Removed 0 duplicate rows
+[2025-09-07T13:37:07.257Z] STDOUT: [2025-09-07 19:07:07,257] Removed 0 duplicate rows
+
+[2025-09-07 19:07:07,273] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\cleaned\cleaned.csv
+[2025-09-07 19:07:07,273] Processing complete!
+[2025-09-07T13:37:07.274Z] STDOUT: [2025-09-07 19:07:07,273] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\data-agent\temp_data\cleaned\cleaned.csv
+
+[2025-09-07T13:37:07.276Z] STDOUT: [2025-09-07 19:07:07,273] Processing complete!
+
+[2025-09-07T13:37:07.492Z] All files cleaned successfully.
