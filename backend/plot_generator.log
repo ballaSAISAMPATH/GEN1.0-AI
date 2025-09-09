@@ -1,11 +1,4 @@
-2025-09-06 21:10:49,688 - INFO - Python script started.
-2025-09-06 21:10:49,689 - INFO - Attempting to load data from stdin.
-2025-09-06 21:10:49,694 - INFO - Data loaded successfully.
-2025-09-06 21:10:49,694 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
-2025-09-06 21:10:50,094 - CRITICAL - An unexpected error occurred: no numeric data to plot
-2025-09-06 21:13:08,759 - INFO - Python script started.
-2025-09-06 21:13:08,759 - INFO - Attempting to load data from stdin.
-2025-09-06 21:13:08,764 - INFO - Data loaded successfully.
+
 2025-09-06 21:13:08,764 - INFO - Creating bar chart with columns: ['industry_category', 'employement']
 2025-09-06 21:13:09,949 - CRITICAL - An unexpected error occurred: [Errno 2] No such file or directory: 'C:\\Users\\bspsa\\Documents\\code\\MERN\\varshi\\AgenticAi\\backend\\public\\images\\plot_1757173386955.png'
 2025-09-06 21:14:40,850 - INFO - Python script started.
@@ -314,3 +307,9 @@ TypeError: no numeric data to plot
 2025-09-07 20:19:02,633 - INFO - Creating heatmap for correlation matrix.
 2025-09-07 20:19:03,176 - INFO - Heatmap saved to C:\Users\bspsa\Documents\code\MERN\varshi\AgenticAi\backend\public\images\plot_1757256539157.png
 2025-09-07 20:19:03,176 - INFO - Plotting function executed successfully.
+2025-09-09 23:03:57,424 - INFO - Python script started.
+2025-09-09 23:03:57,426 - INFO - Attempting to load data from stdin.
+2025-09-09 23:03:57,429 - INFO - Data loaded successfully.
+2025-09-09 23:03:57,429 - INFO - Creating pie chart for column: district_name
+2025-09-09 23:03:58,204 - INFO - Pie chart saved to C:\Users\bspsa\Documents\code\Langchain\AgenticAi\backend\public\images\plot_1757439221561.png
+2025-09-09 23:03:58,204 - INFO - Plotting function executed successfully.

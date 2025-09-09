@@ -3,6 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Interface = () => {
+
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [years, setYears] = useState({});
   const [chatHistory, setChatHistory] = useState([]);
@@ -18,8 +19,8 @@ const Interface = () => {
 useEffect(() => {
   const textarea = document.getElementById("chat-input");
   if (textarea) {
-    textarea.style.height = "auto"; // reset height
-    textarea.style.height = textarea.scrollHeight + "px"; // set to content height
+    textarea.style.height = "auto"; 
+    textarea.style.height = textarea.scrollHeight + "px"; 
   }
 }, [message]);
 
@@ -165,7 +166,6 @@ useEffect(() => {
 
   return (
     <div className="relative overflow-hidden font-sans antialiased text-gray-100 h-screen w-full flex flex-col md:flex-row bg-black">
-      {/* Scrollbar Color */}
       <style>{`
         ::-webkit-scrollbar {
           width: 8px;
@@ -186,10 +186,10 @@ useEffect(() => {
         <div className="flex flex-col md:w-2/3 h-full border-r border-gray-800 p-4">
           <header className="text-center mb-4">
             <h1 className="text-2xl font-bold text-purple-600">
-              RTGS AI Analyst
+              GEN AI
             </h1>
             <p className="text-gray-400 text-sm">
-              Chat with Telangana Open Data
+              Chat with the most realistic dataset analyser.
             </p>
           </header>
           <div className="flex-grow border-y border-y-gray-500 bg-black/50 rounded-xl shadow-inner overflow-y-auto p-2">
@@ -291,7 +291,7 @@ useEffect(() => {
   onChange={(e) => setMessage(e.target.value)}
   onKeyDown={(e) => {
     if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault(); // prevent newline
+      e.preventDefault(); 
       handleSendMessage();
     }
   }}
