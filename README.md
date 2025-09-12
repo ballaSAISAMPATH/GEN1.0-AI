@@ -37,23 +37,26 @@ It’s your **virtual Data Analyst**, powered entirely by AI.
 
 ## 📂 Project Structure  
 
+
+```bash
 GEN-AI/
 │
-├── backend/
-│ ├── controllers/ # API logic
-│ ├── data-agent/ # Python data scripts
-│ │ ├── temp_data/ # Temporary uploads
-│ │ ├── data_processor.py
-│ │ └── plotGenerator.py
-│ ├── routes/ # API endpoints
-│ ├── server.js # Backend entry
+├── backend/                       
+│   ├── controllers/        # API logic
+│   ├── data-agent/         # Python data scripts
+│   │   ├── temp_data/      # Temporary uploads
+│   │   ├── data_processor.py
+│   │   └── plotGenerator.py
+│   ├── routes/             # API endpoints
+│   ├── server.js           # Backend entry
 │
-├── frontend/
-│ ├── src/ # React + Tailwind source
-│ ├── public/ # Frontend assets
-│ └── vite.config.js
+├── frontend/               
+│   ├── src/                # React + Tailwind source
+│   ├── public/             # Frontend assets
+│   └── vite.config.js
 │
 └── README.md
+
 
 ---
 
