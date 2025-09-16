@@ -1,1 +1,48 @@
-[2025-09-15T16:35:29.212Z] Server listening at http://localhost:2601
+[2025-09-16T03:36:53.844Z] Server listening at http://localhost:2601
+[2025-09-16T03:37:56.150Z] Starting new data ingestion & analysis run.
+[2025-09-16T03:37:56.153Z] Processing raw_1757993876125-751792082_GDS2547_raw.csv
+[2025-09-16 09:08:05,546] Starting processing for C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\temp_data\raw_1757993876125-751792082_GDS2547_raw.csv
+[2025-09-16T03:38:05.547Z] STDOUT: [2025-09-16 09:08:05,546] Starting processing for C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\temp_data\raw_1757993876125-751792082_GDS2547_raw.csv
+
+[2025-09-16 09:08:05,612] Standardized column names: ['id_ref', 'identifier', 'gsm152839', 'gsm152840', 'gsm152841', 'gsm152842', 'gsm152843', 'gsm152844', 'gsm152845', 'gsm152846', 'gsm152847', 'gsm152848', 'gsm152849', 'gsm152850', 'gsm152851', 'gsm152852', 'gsm152853', 'gsm152854', 'gsm152855', 'gsm153238', 'gsm153239', 'gsm153240', 'gsm153241', 'gsm153242', 'gsm153243', 'gsm153244', 'gsm153245', 'gsm153246', 'gsm153247', 'gsm153248', 'gsm153249', 'gsm153250', 'gsm153251', 'gsm153252', 'gsm153253', 'gsm153254', 'gsm153255', 'gsm153256', 'gsm153257', 'gsm153258', 'gsm153259', 'gsm153260', 'gsm153261', 'gsm153262', 'gsm153263', 'gsm153264', 'gsm153265', 'gsm153266', 'gsm153267', 'gsm153268', 'gsm153269', 'gsm153270', 'gsm153271', 'gsm153272', 'gsm153273', 'gsm153274', 'gsm153275', 'gsm153276', 'gsm153277', 'gsm153278', 'gsm153279', 'gsm153280', 'gsm153281', 'gsm153282', 'gsm153283', 'gsm153284', 'gsm153285', 'gsm153286', 'gsm153287', 'gsm153288', 'gsm153289', 'gsm153290', 'gsm153291', 'gsm153292', 'gsm153293', 'gsm153294', 'gsm153295', 'gsm153054', 'gsm153055', 'gsm153056', 'gsm153057', 'gsm153058', 'gsm153059', 'gsm153060', 'gsm153061', 'gsm153062', 'gsm153063', 'gsm153064', 'gsm153065', 'gsm153066', 'gsm153067', 'gsm153068', 'gsm153069', 'gsm153070', 'gsm153071', 'gsm153072', 'gsm153073', 'gsm153074', 'gsm153075', 'gsm153076', 'gsm153077', 'gsm153078', 'gsm153079', 'gsm153080', 'gsm153081', 'gsm153082', 'gsm153083', 'gsm153084', 'gsm153085', 'gsm153086', 'gsm153087', 'gsm153088', 'gsm153089', 'gsm153090', 'gsm153091', 'gsm153092', 'gsm153093', 'gsm153094', 'gsm153095', 'gsm153096', 'gsm153097', 'gsm153098', 'gsm153099', 'gsm153100', 'gsm153101', 'gsm153102', 'gsm153103', 'gsm153104', 'gsm153106', 'gsm153107', 'gsm153108', 'gsm153109', 'gsm153110', 'gsm153111', 'gsm153112', 'gsm153113', 'gsm153114', 'gsm187532', 'gsm187533', 'gsm187534', 'gsm187535', 'gsm152906', 'gsm152907', 'gsm152908', 'gsm152909', 'gsm152910', 'gsm152911', 'gsm152912', 'gsm152913', 'gsm152914', 'gsm152915', 'gsm152916', 'gsm152917', 'gsm152918', 'gsm152919', 'gsm152920', 'gsm152921', 'gsm152922', 'gsm152923', 'gsm152924', 'gsm152925', 'gsm152926', 'gsm152927', 'gsm152928', 'gsm152929', 'gsm152930']
+[2025-09-16T03:38:05.612Z] STDOUT: [2025-09-16 09:08:05,612] Standardized column names: ['id_ref', 'identifier', 'gsm152839', 'gsm152840', 'gsm152841', 'gsm152842', 'gsm152843', 'gsm152844', 'gsm152845', 'gsm152846', 'gsm152847', 'gsm152848', 'gsm152849', 'gsm152850', 'gsm152851', 'gsm152852', 'gsm152853', 'gsm152854', 'gsm152855', 'gsm153238', 'gsm153239', 'gsm153240', 'gsm153241', 'gsm153242', 'gsm153243', 'gsm153244', 'gsm153245', 'gsm153246', 'gsm153247', 'gsm153248', 'gsm153249', 'gsm153250', 'gsm153251', 'gsm153252', 'gsm153253', 'gsm153254', 'gsm153255', 'gsm153256', 'gsm153257', 'gsm153258', 'gsm153259', 'gsm153260', 'gsm153261', 'gsm153262', 'gsm153263', 'gsm153264', 'gsm153265', 'gsm153266', 'gsm153267', 'gsm153268', 'gsm153269', 'gsm153270', 'gsm153271', 'gsm153272', 'gsm153273', 'gsm153274', 'gsm153275', 'gsm153276', 'gsm153277', 'gsm153278', 'gsm153279', 'gsm153280', 'gsm153281', 'gsm153282', 'gsm153283', 'gsm153284', 'gsm153285', 'gsm153286', 'gsm153287', 'gsm153288', 'gsm153289', 'gsm153290', 'gsm153291', 'gsm153292', 'gsm153293', 'gsm153294', 'gsm153295', 'gsm153054', 'gsm153055', 'gsm153056', 'gsm153057', 'gsm153058', 'gsm153059', 'gsm153060', 'gsm153061', 'gsm153062', 'gsm153063', 'gsm153064', 'gsm153065', 'gsm153066', 'gsm153067', 'gsm153068', 'gsm153069', 'gsm153070', 'gsm153071', 'gsm153072', 'gsm153073', 'gsm153074', 'gsm153075', 'gsm153076', 'gsm153077', 'gsm153078', 'gsm153079', 'gsm153080', 'gsm153081', 'gsm153082', 'gsm153083', 'gsm153084', 'gsm153085', 'gsm153086', 'gsm153087', 'gsm153088', 'gsm153089', 'gsm153090', 'gsm153091', 'gsm153092', 'gsm153093', 'gsm153094', 'gsm153095', 'gsm153096', 'gsm153097', 'gsm153098', 'gsm153099', 'gsm153100', 'gsm153101', 'gsm153102', 'gsm153103', 'gsm153104', 'gsm153106', 'gsm153107', 'gsm153108', 'gsm153109', 'gsm153110', 'gsm153111', 'gsm153112', 'gsm153113', 'gsm153114', 'gsm187532', 'gsm187533', 'gsm187534', 'gsm187535', 'gsm152906', 'gsm152907', 'gsm152908', 'gsm152909', 'gsm152910', 'gsm152911', 'gsm152912', 'gsm152913', 'gsm152914', 'gsm152915', 'gsm152916', 'gsm152917', 'gsm152918', 'gsm152919', 'gsm152920', 'gsm152921', 'gsm152922', 'gsm152923', 'gsm152924', 'gsm152925', 'gsm152926', 'gsm152927', 'gsm152928', 'gsm152929', 'gsm152930']
+
+[2025-09-16 09:08:05,633] Removed 0 duplicate rows
+[2025-09-16T03:38:05.633Z] STDOUT: [2025-09-16 09:08:05,633] Removed 0 duplicate rows
+
+[2025-09-16 09:08:05,773] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\temp_data\cleaned\cleaned.csv
+[2025-09-16 09:08:05,773] Processing complete!
+[2025-09-16T03:38:05.773Z] STDOUT: [2025-09-16 09:08:05,773] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\temp_data\cleaned\cleaned.csv
+
+[2025-09-16T03:38:05.775Z] STDOUT: [2025-09-16 09:08:05,773] Processing complete!
+
+[2025-09-16T03:38:05.878Z] All files cleaned successfully.
+[2025-09-16T03:53:27.035Z] Starting new data ingestion & analysis run.
+[2025-09-16T03:53:27.039Z] Processing raw_1757994807029-222243885_Details of Fish stocking in 2021-2022.csv
+[2025-09-16 09:23:28,412] Starting processing for C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\temp_data\raw_1757994807029-222243885_Details of Fish stocking in 2021-2022.csv
+[2025-09-16T03:53:28.412Z] STDOUT: [2025-09-16 09:23:28,412] Starting processing for C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\temp_data\raw_1757994807029-222243885_Details of Fish stocking in 2021-2022.csv
+
+[2025-09-16 09:23:28,426] Standardized column names: ['district', 'total_no._of_water_bodies', 'total_effective_spread_area_in_ha', 'total_societies', 'total_seed_requirement_in_lakhs', 'total_indented_water_bodies_no.', 'total__seed_indented__in_lakhs', '%_of_water_bodies_indented', '%_of_quantity_indented', 'total_water_bodies_stocked_no.', 'total_seed_stocked_in_lakhs', '%_of_water_bodies_stocked', '%_of_quantity\nstocked']
+[2025-09-16T03:53:28.426Z] STDOUT: [2025-09-16 09:23:28,426] Standardized column names: ['district', 'total_no._of_water_bodies', 'total_effective_spread_area_in_ha', 'total_societies', 'total_seed_requirement_in_lakhs', 'total_indented_water_bodies_no.', 'total__seed_indented__in_lakhs', '%_of_water_bodies_indented', '%_of_quantity_indented', 'total_water_bodies_stocked_no.', 'total_seed_stocked_in_lakhs', '%_of_water_bodies_stocked', '%_of_quantity\nstocked']
+
+[2025-09-16 09:23:28,435] Removed 3 duplicate rows
+[2025-09-16T03:53:28.435Z] STDOUT: [2025-09-16 09:23:28,435] Removed 3 duplicate rows
+
+[2025-09-16 09:23:28,438] Filled 1 missing values in district with 'Unknown'
+[2025-09-16T03:53:28.437Z] STDERR: C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\data_processor.py:42: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[col].fillna('Unknown', inplace=True)
+
+[2025-09-16T03:53:28.440Z] STDOUT: [2025-09-16 09:23:28,438] Filled 1 missing values in district with 'Unknown'
+
+[2025-09-16 09:23:28,442] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\temp_data\cleaned\cleaned.csv
+[2025-09-16 09:23:28,442] Processing complete!
+[2025-09-16T03:53:28.442Z] STDOUT: [2025-09-16 09:23:28,442] Saved final cleaned CSV: C:\Users\bspsa\Documents\code\Langchain\Symbiote-AI-Langchain---Mern\backend\data-agent\temp_data\cleaned\cleaned.csv
+
+[2025-09-16T03:53:28.444Z] STDOUT: [2025-09-16 09:23:28,442] Processing complete!
+
+[2025-09-16T03:53:28.534Z] All files cleaned successfully.
