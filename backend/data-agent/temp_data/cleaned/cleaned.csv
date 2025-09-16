@@ -1,33 +1,36 @@
-unit_name,ie_or_not,industry_category,district_name,mandal_name,employment,line_of_activity,investment,presentstatus,typeofindustry,export,typeofconnection
-"M/S, JAMUNA STONE CRUSHER",NO,SMALL,Adilabad,Utnoor,9,Stone crushers,210.0,Working,Proprietary,No,LT
-M/S.JAMUNA STONE CRUSHER,NO,SMALL,Adilabad,Utnoor,9,Stone crushers,210.0,Working,Proprietary,No,LT
-M/s Om Bricks,NO,MICRO,Asifabad,Wankdi,6,Fly ash bricks/ block manufacturing,24.54,Working,Proprietary,No,LT
-AB WASTE MANAGEMENT,NO,MICRO,Gadwal,Ieej,11,Reprocessing of waste plastic Including PVC,70.0,Working,Proprietary,No,HT
-JAPS DUCTFAB PVT LTD,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),162.0,Working,Pvt Ltd,No,LT
-"""M/s SVAGO INTERIORS""",NO,MICRO,Hanumakonda,Khaazipet,9,"Carpentry & wooden furniture manufacturing (excluding saw mill) with the help of electrical (motorized) machines such as electrical wood planner, steel saw cutting circular blade, etc",82.0,Working,Partnership,No,LT
-FU,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),170.0,Working,Pvt Ltd,No,LT
-FUAIR CONDITIONING INDIA PVT LTD,YES,SMALL,Hanumakonda,Khaazipet,12,Engineering and fabrication units (dry process without any heat treatment / metal surface finishing operations / painting),170.0,Working,Pvt Ltd,No,LT
-d,YES,LARGE,Hyderabad,Amberpet,1234,Electrical and electronic item assembling ( completely dry process),123456.0,Working,Pvt Ltd,Yes,LT
-Nutriolife Food Processing,NO,MICRO,Hyderabad,Hyderabad,5,Food and food processing including fruits and vegetable processing,118181.0,Working,Proprietary,Yes,LT
-M/s. LAXMI CHANDRAIAH AGRO INDUSTRIES,NO,MICRO,Jagtial,Koratla,15,Parboiled Rice Mills,300.0,Working,Partnership,No,LT
-LAXMI CHANDRAIAH AGRO INDUSTRIES,NO,MICRO,Jagtial,Koratla,15,Parboiled Rice Mills,293.0,Working,Partnership,No,LT
-M.S VISHWANADH AGRO INDUSTRIES PARABOILED RICEMILL,NO,SMALL,Jangaon,Jangaon,15,Parboiled Rice Mills,767.0,Working,Proprietary,No,LT
-M/s.Sri Sai Vaishnavi Granites Industry,NO,SMALL,Karimnagar,Gangadhara,20,"Cutting, sizing and polishing of marble stone",200.0,Working,Partnership,No,LT
-SRI SAI TANVI GRANITES,NO,SMALL,Karimnagar,Kothapally,10,Granite / Stone Cutting and Polishing,200.0,Working,Partnership,No,LT
-SRI LAXMI GANAPATHI GRANITES,NO,SMALL,Karimnagar,Kothapally,15,"Cutting, sizing and polishing of marble stone",272.0,Working,Partnership,No,HT
-SVG INDUSTRY,NO,MICRO,Karimnagar,Kothapally,10,Granite / Stone Cutting and Polishing,180.0,Working,Partnership,No,HT
-SRI POULTRY FARMS,NO,SMALL,Khammam,Penuballi,10,"Poultry, Hatchery and Piggery",200.0,Other,Proprietary,No,HT
-ALP AEROFLEX INDIA PRIVATE LIMITED,NO,MEDIUM,Mahbubnagar,Jadcherla,65,Rubber goods industry (with gas operated baby boiler),4806.0,Working,Pvt Ltd,No,LT
-M/S ALP AEROFLEX INDIA PRIVATE LIMITED,NO,MEDIUM,Mahbubnagar,Jadcherla,66,Rubber goods industry (with gas operated baby boiler),7500.0,Working,Pvt Ltd,No,LT
-ALP AEROFLEX INDIA PRIVATE LIMITED,YES,MEDIUM,Mahbubnagar,Rajapur,66,Rubber goods industry (with gas operated baby boiler),7500.0,Working,Pvt Ltd,Yes,HT
-ALP Aeroflex India Pvt. Ltd.,YES,MEDIUM,Mahbubnagar,Rajapur,66,Rubber goods industry (with gas operated baby boiler),7500.0,Working,Pvt Ltd,Yes,HT
-Bansal Polyplast Pvt Ltd,YES,SMALL,Medak,Kulcharam,13,Reprocessing of waste plastic Including PVC,494.85,Working,Pvt Ltd,No,HT
-"M/S BANSAL POLYPLAST PVT LTD.,",YES,SMALL,Medak,Manoharabad,13,Reprocessing of waste plastic Including PVC,479.66,Working,Pvt Ltd,No,HT
-M/s. RECAZ POLYURETHANES PVT LTD,NO,MICRO,Medak,Manoharabad,6,"Lubricating oil, greases or petroleum based products (only blending at nomad temperature)",75.0,Working,Pvt Ltd,Yes,LT
-Sinduja PloyBags,YES,SMALL,Medchal,Qutubullapur,30,Polythene and plastic processed products manufacturing(Virgin Plastic),450.0,Working,Proprietary,No,HT
-M/S DECCAN GRAINZ PRIVATE LIMITED,YES,SMALL,Mulugu,Mulugu,62,Packing of powdered mill,1236.6,Working,Pvt Ltd,Yes,HT
-sprint ziptech,NO,MICRO,Rangareddy,Kothur,12,Polythene and plastic processed products manufacturing(Virgin Plastic),80.0,Working,Proprietary,No,LT
-M/s Sainath Enterprises,NO,MICRO,Rangareddy,Rajendranagar,10,Polythene and plastic processed products manufacturing(Virgin Plastic),50.0,Other,Proprietary,No,LT
-ASTRAL LIMITED,YES,LARGE,Rangareddy,Shabad,500,Polythene and plastic processed products manufacturing(Virgin Plastic),128582.0,Working,Public Limited,No,HT
-BRAMARAMBIKA MALLIKARJUNA AGRO INDUSTRIES,NO,MICRO,Sangareddy,Pulkal,15,Parboiled Rice Mills,344.0,Working,Proprietary,No,LT
-KISAN DAIRY FARM,NO,MICRO,Warangal,Wardhanna Pet,5,"Dairy Farm (Stand-alone or isolated dairy farm, having 15 animals & above)",20.0,Working,Proprietary,No,LT
+district,total_no._of_water_bodies,total_effective_spread_area_in_ha,total_societies,total_seed_requirement_in_lakhs,total_indented_water_bodies_no.,total__seed_indented__in_lakhs,%_of_water_bodies_indented,%_of_quantity_indented,total_water_bodies_stocked_no.,total_seed_stocked_in_lakhs,%_of_water_bodies_stocked,"%_of_quantity
+stocked"
+ADILABAD,291.0,4736.66,32.0,129.23,271.0,124.2,93.13,96.11,271.0,124.2,100.0,100.0
+BHADRADRI,700.0,7116.76,43.0,179.75,698.0,179.44,99.71,99.82,698.0,179.08,100.0,99.8
+HANUMAKONDA,787.0,7628.497,123.0,213.9,401.0,84.18,50.95,39.36,395.0,83.48,98.5,99.16
+HYDERABAD,1.0,30.0,1.0,0.6,0.0,,0.0,,0.0,0.0,0.0,
+JAGTIAL,695.0,8161.265,171.0,166.67,479.0,136.23,68.92,81.74,478.0,135.3,99.79,99.32
+JANGAON,786.0,10128.0,128.0,282.26,295.0,123.72,37.53,43.83,295.0,123.72,100.0,100.0
+JAYASHANKAR,466.0,10740.3,81.0,192.07,23.0,83.47,4.94,43.46,23.0,83.45,100.0,99.98
+JOGULAMBA - GADWAL,441.0,10480.92,38.0,183.48,416.0,150.51,94.33,82.03,415.0,150.18,99.76,99.78
+KAMAREDDY,605.0,20173.673,150.0,339.23,604.0,338.89,99.83,99.9,604.0,338.81,100.0,99.98
+KARIMNAGAR,921.0,13266.161,172.0,225.46,794.0,212.16,86.21,94.1,794.0,212.16,100.0,100.0
+KHAMMAM,1210.0,17836.992,153.0,400.42,1129.0,363.69,93.31,90.83,1129.0,361.89,100.0,99.51
+KUMARAMBHEEM(ASIFABAD),294.0,7022.25,32.0,141.93,284.0,138.83,96.6,97.81,284.0,138.82,100.0,100.0
+MAHABUBABAD ,1285.0,18469.99,150.0,442.1,1263.0,434.88,98.29,98.37,1262.0,434.75,99.92,99.97
+MAHABUBNAGAR,1239.0,9161.4,168.0,254.3,1040.0,221.97,83.94,87.29,1040.0,221.97,100.0,100.0
+MANCHERIAL,376.0,12858.5,63.0,227.46,359.0,220.77,95.48,97.06,359.0,220.77,100.0,100.0
+MEDAK,1617.0,19857.866,230.0,510.8,1601.0,493.61,99.01,96.63,1601.0,493.44,100.0,99.97
+MEDCHAL,393.0,3303.73,46.0,92.27,318.0,75.9,80.92,82.26,318.0,75.9,100.0,100.0
+MULUGU,417.0,6978.163,17.0,135.04,14.0,41.17,3.36,30.49,14.0,41.17,100.0,100.0
+NAGARKURNOOL,1518.0,16402.551,163.0,307.59,1293.0,288.59,85.18,93.82,1293.0,287.99,100.0,99.79
+NALGONDA ,1473.0,36811.433,152.0,620.27,1212.0,585.0,82.28,94.31,1210.0,578.45,99.83,98.88
+NARAYANPET,710.0,9521.912,98.0,193.22,707.0,179.15,99.58,92.72,707.0,179.13,100.0,99.99
+NIRMAL,701.0,32643.87,120.0,498.03,646.0,460.17,92.15,92.4,646.0,459.95,100.0,99.95
+NIZAMABAD ,1043.0,28482.076,261.0,485.04,1009.0,472.63,96.74,97.44,1009.0,472.61,100.0,100.0
+PEDDAPALLI,1120.0,11800.471,124.0,196.94,376.0,90.83,33.57,46.12,372.0,90.57,98.94,99.71
+RAJANNA(SIRISILLA),399.0,10344.933,77.0,134.86,392.0,119.28,98.25,88.45,392.0,119.25,100.0,99.98
+RANGA REDDY,836.0,6227.337,95.0,175.18,794.0,165.47,94.98,94.45,794.0,163.14,100.0,98.59
+SANGAREDDY,1292.0,24972.07,161.0,388.04,1068.0,358.2,82.66,92.31,1068.0,358.01,100.0,99.95
+SIDDIPET,1721.0,23726.632,239.0,437.5,1606.0,397.65,93.32,90.89,1606.0,397.64,100.0,100.0
+SURYAPET ,1262.0,22522.144,122.0,432.87,850.0,353.46,67.35,81.65,850.0,353.36,100.0,99.97
+VIKARABAD,801.0,4562.445,106.0,123.9,709.0,117.69,88.51,94.99,709.0,117.69,100.0,100.0
+WANAPARTHY,1103.0,16743.5,102.0,265.38,1084.0,235.8,98.28,88.85,1084.0,235.8,100.0,100.0
+WARANGAL,745.0,7034.07,130.0,206.46,426.0,110.88,57.18,53.71,426.0,110.88,100.0,100.0
+YADADRI,1204.0,12945.305,136.0,331.21,1117.0,316.57,92.77,95.58,1115.0,316.46,99.82,99.96
+Unknown,,,,,,,,,,,,

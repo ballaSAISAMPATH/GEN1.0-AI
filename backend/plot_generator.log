@@ -313,3 +313,9 @@ TypeError: no numeric data to plot
 2025-09-09 23:03:57,429 - INFO - Creating pie chart for column: district_name
 2025-09-09 23:03:58,204 - INFO - Pie chart saved to C:\Users\bspsa\Documents\code\Langchain\AgenticAi\backend\public\images\plot_1757439221561.png
 2025-09-09 23:03:58,204 - INFO - Plotting function executed successfully.
+2025-09-15 22:24:23,643 - INFO - Python script started.
+2025-09-15 22:24:23,643 - INFO - Attempting to load data from stdin.
+2025-09-15 22:24:23,645 - INFO - Data loaded successfully.
+2025-09-15 22:24:23,645 - INFO - Creating pie chart for column: typeofindustry
+2025-09-15 22:24:24,787 - INFO - Pie chart saved to C:\Users\bspsa\Documents\code\Langchain\AgenticAi\backend\public\images\plot_1757955248224.png
+2025-09-15 22:24:24,787 - INFO - Plotting function executed successfully.
